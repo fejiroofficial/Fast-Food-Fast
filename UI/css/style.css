@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+html, body, .container {
+    margin: 0px;
+    padding: 0px;
+    min-height: 500px;
+    width: 100%;
+    min-width: 1235px;
+    font-family: "Muli", "Merriweather", "Georgia", serif;
+}
+
+.top-nav {
+    height: 60px;
+    width: 100%;
+    box-shadow: 0px 0px 1px 0px lightgrey;
+    display: flex;
+}
+
+.logo {
+    height: inherit;
+    width: 500px;
+    background-image: url('../img/logoblack2.png');
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.logo-box {
+    height: inherit;
+    width: 70%;
+}
+
+#auth-box {
+    height: inherit;
+    width: 300px;
+}
+
+.btn {
+    height: 40px;
+    width: 126px;
+    float: right;
+    margin-top: 9px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 11px;
+    color: black;
+    padding-top: 9px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e62e22;
+    color: white;
+}
+
+.order-btn:hover {
+    background-color: #e62e22;
+    color: white;
+}
+
+.order-btn {
+    height: 40px;
+    width: 126px;
+    margin-top: 9px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 11px;
+    color: black;
+    padding-top: 9px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-space {
+    height: 80px;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.write-hero {
+    height: inherit;
+    width: 573px;
+    margin-left: 10px;
+    padding-top: 80px;
+}
+
+.eat-hero {
+    color:  #3d3d3d;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.eat-ready {
+    color: #f7ad07;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.eat-bold {
+    color: #828186;
+    font-size: 49px;
+    height: 60px;
+    font-weight: 600;
+}
+
+.we-deliver {
+    height: 400px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.write-del {
+    width: 100%;
+    height: inherit;
+    text-align: center;
+}
+
+.hero-del {
+    background-image: url('../img/deliveryboy.png');
+    background-size: inherit;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.del-text {
+    color: #2e2929;
+}
+
+.variety-header {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: 55px;
+    margin-top: 70px;
+}
+
+.variety-box {
+    margin-top: 190px;
+    min-height: 400px;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.variety-kind {
+    min-height: 400px;
+    width: 1081px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.variety {
+    height: 400px;
+    width: 340px;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 13px 1px lightgrey;
+}
+
+.variety-one {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdjmbAZf66WmFeCrDfg42nRC-MuvsKAbwLZAAkmQ_tlvV3hIIAHQ");
+    background-size: auto;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.variety-two {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDExoiSqc775ON8a_DEUzMJpt8o6HUrrI4B_tBlOWlU_3t4VlQA");
+    background-size: auto;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.variety-three {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Tgq6oQ6mkShcdbggZCnQjRYj-weYq-VDCep1hJHMXUtBg73Txg");
+    background-size: auto;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.variety-four {
+    background-image: url("https://thumbs.dreamstime.com/b/chinese-food-rice-fried-chicken-vegetables-isolated-white-background-opened-take-out-box-105837973.jpg");
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.variety-five {
+    background-image: url("https://www.takaski.com/wp-content/uploads/2016/03/YAWATAYA-ISOGORO-Shichimi-Togarashi-Rice-Crackers-Garam-Masala-Made-in-Japna2.jpg");
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.variety-six {
+    background-image: url("https://eatfitgo.com/wp-content/uploads/2018/06/KickinChickenFriedRice_website.jpg");
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+footer {
+    height: 80px;
+    margin-top: 40px;
+    background-color: #363232;
+}
