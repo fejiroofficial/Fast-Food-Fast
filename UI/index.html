@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>stack-lite</title>
   <link rel="stylesheet" type="text/css" href="../UI/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../UI/css/modal.css">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -17,9 +18,10 @@
         <div class="logo"></div>
       </div>
       <div id="auth-box">
-        <div class="btn">Login/Sign up</div>
+        <div class="btn" onclick="openModal()">Login/Sign up</div>
       </div>
     </div>
+
 
     <div class="we-deliver">
       <div class="write-del hero-del">
@@ -49,7 +51,47 @@
       </div>
     </div>
   </div>
+
+
+  <div id="modal" class="modal-box">
+    <div class="modal-box-content">
+
+      <div class="avatar-hero">
+        <br>
+        <span onclick="closeModal()" class="cancel-btn" title="Close Modal">&times;</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02t10e803wAb6yvCxp94Sv9XxVMtqOFDganij2UVcDK4uqUNB" alt="Avatar"
+          class="avatar">
+      </div>
+
+      <form class="form-box" action="/action_page.php">
+        <div class="form-section">
+          <label>
+            <b>Email</b>
+          </label>
+          <input class="form-input email-input" type="email" placeholder="@gmail.com" name="eml" required>
+          <label>
+            <b>Password</b>
+          </label>
+          <input class="form-input" type="password" placeholder="Enter Password" name="psw" required>
+          <div class="sign-btn-box">
+            <button class="sign-btn" type="submit">Login</button>
+          </div>
+          <p>Do not have an account? Create an account
+            <a href="./signup.html">here...</a>
+          </p>
+        </div>
+      </form>
+
+      <div class="form-box">
+        <button onclick="closeModal()" type="button" class="btn-red">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
   <footer></footer>
+
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
