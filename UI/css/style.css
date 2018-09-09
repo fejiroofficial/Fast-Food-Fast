@@ -61,6 +61,11 @@ html, body, .container {
     color: white;
 }
 
+.sign-btn:hover {
+    background-color: #e62e22;
+    color: white;
+}
+
 .order-btn {
     height: 40px;
     width: 126px;
@@ -73,6 +78,35 @@ html, body, .container {
     padding-top: 9px;
     text-align: center;
     cursor: pointer;
+}
+
+.btn-red {
+  height: 33px;
+  width: 56px;
+  color: white;
+  border-style: solid;
+  border-width: thin;
+  background-color: #e62e22;
+}
+
+.sign-btn-box {
+  text-align: -webkit-center;
+}
+
+.sign-btn {
+  height: 33px;
+  width: 135px;
+  margin-top: 9px;
+  background-color: white;
+  border-color: lightgrey;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 11px;
+  color: black;
+  padding-top: 0px;
+  text-align: center;
+  cursor: pointer;
+    
 }
 
 .btn-space {
