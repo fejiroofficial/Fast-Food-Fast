@@ -64,8 +64,53 @@ form {
     width: 100%;
 }
 
-.email-input {
+.form-b-space {
     margin-bottom: 16px;
+}
+
+.modal-class-log {
+    height: 80px;
+    width: inherit;
+    display: flex;
+}
+
+#modal-class-one-log {
+    border-right-style: solid;
+    border-right-width: thin;
+    border-right-color: lightgrey;
+}
+
+#modal-class-one-log:active {
+    background-color: white;
+}
+
+#modal-class-one-reg:active {
+    background-color: white;
+}
+
+.modal-class-one {
+    height: inherit;
+    width: 50%;
+    text-align: center;
+    padding-top: 30px;
+    border-bottom-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.modal-class-one:hover {
+    background-color: #e62e22;
+    color: white;
+}
+
+.acct-head {
+    height: 50px;
+    width: inherit;
+    text-align: -webkit-center;
+    font-weight: 600;
+    padding-top: 28px;
 }
 
 
