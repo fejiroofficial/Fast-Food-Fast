@@ -18,10 +18,11 @@ html, body, .container {
 }
 
 .logo {
-    height: inherit;
-    width: 500px;
-    background-image: url('../img/logoblack2.png');
-    background-size: cover;
+    height: 155px;
+    width: 475px;
+    margin-top: -34px;
+    background-image: url(../img/new-logo.png);
+    background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
 }
@@ -34,6 +35,16 @@ html, body, .container {
 #auth-box {
     height: inherit;
     width: 300px;
+    display: flex;
+    padding-left: 165px;
+}
+
+#user-auth-box {
+    height: inherit;
+    width: 300px;
+    display: flex;
+    padding-top: 17px;
+    padding-left: 157px;
 }
 
 .btn {
@@ -41,6 +52,7 @@ html, body, .container {
     width: 126px;
     float: right;
     margin-top: 9px;
+    font-weight: 600;
     border-color: lightgrey;
     border-style: solid;
     border-width: thin;
@@ -70,6 +82,7 @@ html, body, .container {
     height: 40px;
     width: 126px;
     margin-top: 9px;
+    font-weight: 600;
     border-color: lightgrey;
     border-style: solid;
     border-width: thin;
@@ -106,7 +119,7 @@ html, body, .container {
   padding-top: 0px;
   text-align: center;
   cursor: pointer;
-    
+  font-weight: 600;    
 }
 
 .btn-space {
@@ -240,4 +253,166 @@ footer {
     height: 80px;
     margin-top: 40px;
     background-color: #363232;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.food-hero {
+    height: 300px;
+    width: 100%;
+    background-image: url('../img/spag.jpg');
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.order-header {
+    height: inherit;
+    width: 400px;
+    display: flex;
+    font-size: 34px;
+    font-weight: 600;
+    padding-left: 57px;
+}
+
+.place-order {
+    height: 80px;
+    border-bottom-color: lightgrey;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    text-align: -webkit-center;
+}
+
+.material-icon {
+    height: inherit;
+    width: 58px;
+    background-image: url('../img/food.png');
+    background-position: 50%;
+    background-size: auto;
+    background-repeat: no-repeat
+}
+
+.title-header {
+    padding-top: 23px;
+}
+
+.order-content {
+    min-height: 500px;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.order-box {
+    min-height: inherit;
+    width: 1000px;
+    display: flex;
+}
+
+.order-box-left {
+    min-height: inherit;
+    width: 700px;
+}
+
+.order-box-right {
+    min-height: inherit;
+    width: 300px;
+    box-shadow: 0px 0px 18px 1px lightgrey;
+}
+
+.box-right-top {
+    height: 80px;
+    width: inherit;
+    text-align: -webkit-center;
+}
+
+.cart-header {
+    height: inherit;
+    width: 80px;
+    background-image: url('../img/cart.png');
+    background-position: 50%;
+    background-size: auto;
+    background-repeat: no-repeat
+}
+
+.cart-items {
+    min-height: 100px;
+    width: inherit;
+}
+
+.yum-content {
+    min-height: 250px;
+    width: inherit;
+    text-align: left;
+}
+
+.yum-header {
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 16px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.yum-child {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: lightgray;
+    border-top-style: solid;
+    border-top-width: thin;
+}
+
+.yum-img1 {
+    margin-top: 4px;
+    height: 91px;
+    width: 100px;
+    background-image: url(http://www.allnigerianrecipes.com/images/nigerian-fried-rice1.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.yum-img2 {
+    margin-top: 4px;
+    height: 91px;
+    width: 100px;
+    background-image: url('https://food-images.files.bbci.co.uk/food/recipes/spaghetti_bolognese_with_23409_16x9.jpg');
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.yum-name {
+    height: inherit;
+    width: 400px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.yum-price {
+    height: inherit;
+    width: 200px;
+    padding-left: 94px;
+    padding-top: 73px;
+    display: flex;
+}
+
+.add-icon {
+    color: #e62e22;
+    cursor: pointer;
+}
+
+.add-box {
+    padding-top: 1px;
+}
+
+.amount {
+    padding-top: 3px;
 }
