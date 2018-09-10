@@ -10,15 +10,16 @@
     font-size: 24px;
     padding-top: 24px;
     color: #aba4a4;
+    font-weight: bold;
 }
 
-.admin-content-box {
+.admin-content-box, .user-content-box {
     min-height: 500px;
     width: 100%;
     text-align: -webkit-center;
 }
 
-.admin-content {
+.admin-content, .user-content {
     min-height: 200px;
     width: 1000px;
     display: flex;
@@ -40,7 +41,7 @@
     width: inherit;
     padding-top: 19px;
     font-weight: bold;
-    color: #706969;
+    color: #6e6666;
 }
 
 .order-card {
@@ -79,4 +80,85 @@
 
 #decline-btn:hover {
     background-color: #e62e22;
+}
+
+.acct-box {
+    width: 300px;
+    height: 422px;
+    box-shadow: 0px 0px 10px 1px lightgrey;
+}
+
+.recent-box {
+    width: 700px;
+    min-height: 500px;
+    margin-top: -10px;
+}
+
+.sec-content, input {
+    height: inherit;
+    width: inherit;
+    color: #7a7272;
+}
+
+.form-h5 {
+    text-align: initial;
+    padding-left: 17px;
+}
+
+.field {
+    display: flex;
+    padding-left: 17px;
+}
+
+.tel-label {
+    margin-right: 5px;
+    margin-bottom: 30px;
+}
+
+.name-label {
+    margin-right: 10px;
+}
+
+.email-label {
+    margin-right: 40px;
+    margin-bottom: 29px;
+}
+
+.data-btn {
+    cursor: pointer;
+    background-color: white;
+    border-width: thin;
+    height: 28px;
+    border-radius: 7px;
+    color: #7a7272;
+}
+
+.data-btn:hover {
+    background-color: #e62e22;
+    color: white;
+}
+
+.btn-field {
+    text-align: -webkit-center;
+}
+
+.rec-order {
+    height: 40px;
+    width: inherit;
+    display: flex;
+}
+.rec-order-date {
+    height: inherit;
+    width: 200px;
+}
+
+.rec-order-items {
+    height: inherit;
+    width: 400px;
+    text-align: -webkit-left;
+}
+
+.rec-order-amt {
+    height: inherit;
+    width: 100px;
 }
