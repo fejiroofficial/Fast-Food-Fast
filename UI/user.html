@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stack-lite</title>
+  <link rel="stylesheet" type="text/css" href="../UI/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../UI/css/admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-nav">
+      <div class="logo-box">
+        <div class="logo"></div>
+      </div>
+      <div id="user-auth-box">
+        <i class="material-icons">account_circle</i>
+        <div class="prof-name">Tholle Mayer</div>
+      </div>
+    </div>
+
+    <div class="admin-top">
+      <div class="admin-top-header">Tholle Mayer</div>
+    </div>
+
+    <div class="user-content-box">
+      <div class="user-content">
+        <div class="acct-box">
+          <div class="sec-header">Account Settings</div>
+          <div class="sec-content">
+            <p>This is your private area. Please keep your information up to date.</p>
+
+            <form action="#" method="post" class="user-form">
+              <h5 class="form-h5">Personal information</h5>
+              <div class="field">
+                <label class="name-label">Full name</label>
+                <div class="control">
+                  <input type="text" id="info_fullname" name="fullname-form" required="required"
+                   class="input" value="Tholle Mayer">
+                </div>
+              </div>
+
+              <h5 class="form-h5">Contact Details</h5>
+              <div class="field">
+                <label class="email-label"> Email</label>
+                <div class="control">
+                  <input type="email" id="info_email" name="personal_email" required="required"
+                    class="input" value="mayer8@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="tel-label">Telephone</label>
+                <div class="control">
+                  <input type="tel" id="info_tel" name="personal_tel" required="required"
+                    class="input" value="+2348138776199">
+                </div>
+              </div>
+
+              <div class="btn-field">
+                <div class="control">
+                  <button type="submit" id="savePersonalData" name="personal_save]" class="data-btn">Save Changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="recent-box">
+          <div class="sec-header">Recent Orders</div>
+          <div class="rec-order">
+            <div class="rec-order-date">2, May, 2018</div>
+            <div class="rec-order-items">Fried rice, chicken, yoghurt</div>
+            <div class="rec-order-amt">#2000</div>
+          </div>
+
+          <div class="rec-order">
+            <div class="rec-order-date">2, september, 2018</div>
+            <div class="rec-order-items">Pizza, Chicken $ Chips, Pepsi</div>
+            <div class="rec-order-amt">#2000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</body>
+
+</html>
