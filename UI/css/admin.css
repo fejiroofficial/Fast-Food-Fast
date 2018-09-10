@@ -162,3 +162,66 @@
     height: inherit;
     width: 100px;
 }
+
+.sign-in-content {
+    height: 343px;
+    width: 500px;
+    margin-left: 35%;
+    margin-right: 50%;
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    margin-top: 60px;
+}
+
+.sign-in-header {
+    height: 80px;
+    width: inherit;
+    text-align: center;
+    font-size: xx-large;
+    padding-top: 20px;
+}
+#sign-in-form {
+    margin: 0 auto;
+    height: 180px;
+    width: 425px;
+}
+
+#btn-container {
+    height: 50px;
+    width: inherit;
+    text-align: center;
+}
+#btn-container {
+    height: 50px;
+    width: inherit;
+    text-align: center;
+}
+
+input[id=admin-email], input[id=admin-password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 52px;
+}
+
+#sign-btn {
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: white;
+    color: black;
+    border-color: #beb5b5;
+    border-style: solid;
+    border-width: thin;
+}
+
+#sign-btn:hover {
+    background-color: #e62e22;
+}
