@@ -416,3 +416,7 @@ a {
 .amount {
     padding-top: 3px;
 }
+
+#click-me:hover {
+    color: #e62e22;
+}
