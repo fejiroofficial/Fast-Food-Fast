@@ -7,7 +7,7 @@
     "start": "babel-node server/app.js",
     "dev": "nodemon server/app.js --exec babel-node",
     "lint": "eslint ./ --fix",
-    "test": "cross-env NODE_ENV=test nyc mocha --timeout 10000 --require babel-register test --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha --timeout 10000 --require babel-register server/test --exit",
     "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-http": "^4.2.0",
+    "cross-env": "^5.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
