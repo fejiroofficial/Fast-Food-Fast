@@ -27,8 +27,8 @@ const postOrder = (req, res) => {
 
   const newOrder = {
     id: allOrders.length + 1,
-    fullname,
     userId,
+    fullname,
     userTelephone,
     address,
     foodItems,
