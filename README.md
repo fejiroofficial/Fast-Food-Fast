@@ -1,6 +1,6 @@
 # Fast-Food-Fast
 
-[![Build Status](https://travis-ci.com/fejiroofficial/stackoverflow-lite.svg?branch=develop)](https://travis-ci.com/fejiroofficial/Fast-Food-Fast)
+[![Build Status](https://travis-ci.com/fejiroofficial/Fast-Food-Fast.svg?branch=build-version-one)](https://travis-ci.com/fejiroofficial/Fast-Food-Fast)
 [![Coverage Status](https://coveralls.io/repos/github/fejiroofficial/Fast-Food-Fast/badge.svg?branch=build-version-one)](https://coveralls.io/github/fejiroofficial/Fast-Food-Fast?branch=build-version-one)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e54665da4af69a63abfd/maintainability)](https://codeclimate.com/github/fejiroofficial/Fast-Food-Fast/maintainability)
 
