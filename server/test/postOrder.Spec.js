@@ -34,6 +34,7 @@ describe('Orders', () => {
       const order = {
         id: 1,
         fullname: 'okoro nwafor',
+        userId: '',
         userTelephone: '08138776199',
         address: '14 shomolu street, mushin, lagos',
         meal: 'fried rice',
@@ -49,6 +50,29 @@ describe('Orders', () => {
           expect(res.type).to.equal('application/json');
           expect(res.body).to.be.an('object');
           expect(res.body.message).to.equal('unauthorized user');
+          done();
+        });
+    });
+    it('should not post an order if userid is not a number', (done) => {
+      const order = {
+        id: 1,
+        userId: 'www',
+        fullname: 'okoro nwafor',
+        userTelephone: '08138776199',
+        address: '14 shomolu street, mushin, lagos',
+        meal: 'fried rice',
+        quantity: 1,
+        price: 500,
+      };
+      chai.request(app)
+        .post('/api/v1/orders')
+        .send(order)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.success).to.equal('false');
+          expect(res.type).to.equal('application/json');
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user id should be a number');
           done();
         });
     });
@@ -148,6 +172,7 @@ describe('Orders', () => {
         userTelephone: '08138776199',
         address: '14 shomolu street, mushin, lagos',
         meal: 'fried rice',
+        quantity: '',
         price: 500,
       };
       chai.request(app)
@@ -162,6 +187,29 @@ describe('Orders', () => {
           done();
         });
     });
+    it('should not post an order if quantity is not a number', (done) => {
+      const order = {
+        id: 1,
+        userId: 1,
+        fullname: 'okoro nwafor',
+        userTelephone: '08138776199',
+        address: '14 shomolu street, mushin, lagos',
+        meal: 'fried rice',
+        quantity: 'www',
+        price: 500,
+      };
+      chai.request(app)
+        .post('/api/v1/orders')
+        .send(order)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.success).to.equal('false');
+          expect(res.type).to.equal('application/json');
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('quantity input should be a number');
+          done();
+        });
+    });
     it('should post an order if price is not provided', (done) => {
       const order = {
         id: 1,
@@ -171,6 +219,7 @@ describe('Orders', () => {
         address: '14 shomolu street, mushin, lagos',
         meal: 'fried rice',
         quantity: 1,
+        price: '',
       };
       chai.request(app)
         .post('/api/v1/orders')
@@ -181,6 +230,29 @@ describe('Orders', () => {
           expect(res.type).to.equal('application/json');
           expect(res.body).to.be.an('object');
           expect(res.body.message).to.equal('Please input a price for this item');
+          done();
+        });
+    });
+    it('should not post an order if price is not a number', (done) => {
+      const order = {
+        id: 1,
+        userId: 1,
+        fullname: 'okoro nwafor',
+        userTelephone: '08138776199',
+        address: '14 shomolu street, mushin, lagos',
+        meal: 'fried rice',
+        quantity: 1,
+        price: 'fff',
+      };
+      chai.request(app)
+        .post('/api/v1/orders')
+        .send(order)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.success).to.equal('false');
+          expect(res.type).to.equal('application/json');
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('price input should be a number');
           done();
         });
     });
