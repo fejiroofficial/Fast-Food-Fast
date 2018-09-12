@@ -9,6 +9,7 @@ router.route('/orders')
   .get(orderCtrl.getAllOrders);
 
 router.route('/orders/:id')
-  .put(middlewares.validateUpdateStatus, orderCtrl.updateStatus);
-
+  .put(middlewares.validateUpdateStatus, orderCtrl.updateStatus)
+  .get(orderCtrl.fetchOrder);
+  
 export default router;
