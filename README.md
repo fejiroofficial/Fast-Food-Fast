@@ -54,4 +54,4 @@ Api is hosted [`here`](https://food-fast-app.herokuapp.com/)
 
 ## UI Templates
 
-UI is hosted [`here`](https://fejiroofficial.github.io/fast-food-fast)
+UI is hosted [`here`](https://fejiroofficial.github.io/Fast-Food-Fast)
