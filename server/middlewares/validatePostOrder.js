@@ -8,8 +8,24 @@ const validatePostOrder = (req, res, next) => {
   meal = meal && meal.toString().trim();
   fullname = fullname && fullname.toString().trim();
   userId = userId && userId.toString().trim();
-  quantity = quantity && quantity.toString().trim();
-  price = price && price.toString().trim();
+
+  if (isNaN(quantity)) {
+    const err = new Error('quantity input should be a number');
+    err.statusCode = 400;
+    return next(err);
+  }
+
+  if (isNaN(price)) {
+    const err = new Error('price input should be a number');
+    err.statusCode = 400;
+    return next(err);
+  }
+
+  if (isNaN(userId)) {
+    const err = new Error('user id should be a number');
+    err.statusCode = 400;
+    return next(err);
+  }
 
   if (!fullname) {
     const err = new Error('Your full name is required');
