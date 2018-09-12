@@ -1,5 +1,5 @@
 const validateUpdateStatus = (req, res, next) => {
-  let { orderStatus } = req.body;  
+  let { orderStatus } = req.body;
   orderStatus = orderStatus && orderStatus.toString().trim();
 
   if (!orderStatus) {

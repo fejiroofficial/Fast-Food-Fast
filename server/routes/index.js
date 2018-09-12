@@ -5,9 +5,10 @@ import middlewares from '../middlewares';
 const router = express.Router();
 
 router.route('/orders')
-  .post(middlewares.validatePostOrder, orderCtrl.postOrder);
+  .post(middlewares.validatePostOrder, orderCtrl.postOrder)
+  .get(orderCtrl.getAllOrders);
 
 router.route('/orders/:id')
-  .put(middlewares.validateUpdateStatus, orderCtrl.updateStatus);  
+  .put(middlewares.validateUpdateStatus, orderCtrl.updateStatus);
 
 export default router;
