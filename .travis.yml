@@ -7,4 +7,5 @@ cache:
   directories: 
     - "node_modules"
 
-after_success: npm coverage
+after_success: 
+   - npm run coverage
