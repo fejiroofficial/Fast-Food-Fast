@@ -1,18 +1,18 @@
-const user = {
-  id: 1,
-  fullname: 'Fejiro Gospel',
-  email: 'houseofjiro@gmail.com',
-  telephone: '08138776199',
-  password: '123456',
-};
+export const users = [
+  {
+    id: 1,
+    fullname: 'Fejiro Gospel',
+    email: 'houseofjiro@gmail.com',
+    telephone: '08138776199',
+    address: '14 shomolu street, mushin, lagos',
+    password: '123456',
+  },
+];
 
 const allOrders = [
   {
     id: 1,
     userId: 1,
-    fullname: 'Tholle mayer',
-    userTelephone: '08138776199',
-    address: '14 shomolu street, mushin, lagos',
     foodItems: [
       {
         meal: 'fried rice',
@@ -27,4 +27,6 @@ const allOrders = [
   },
 ];
 
+
 export default allOrders;
+
