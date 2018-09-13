@@ -1,13 +1,9 @@
 import allOrders from '../datastore/orders';
+import users from '../datastore/orders';
 
 const postOrder = (req, res) => {
-  let {
-    userTelephone, address, meal, fullname,
-  } = req.body;
+  let { meal } = req.body;
 
-  fullname = fullname && fullname.toString().trim().replace(/\s+/g, ' ');
-  userTelephone = userTelephone && userTelephone.toString().trim().replace(/\s+/g, '');
-  address = address && address.toString().trim().replace(/\s+/g, ' ');
   meal = meal && meal.toString().trim().replace(/\s+/g, ' ');
 
   const userId = parseInt(req.body.userId, 10);
@@ -16,34 +12,40 @@ const postOrder = (req, res) => {
   const now = new Date().toISOString();
   const Total = quantity * price;
 
-  const foodItems = [
-    {
-      meal, quantity, price,
-    },
-  ];
+  for (const i = 0; i < users.length; i++) {
+    if (users[i].id === userId) {
+      console.log (user[i]);
+    }
+  }
 
-  const orderStatus = 'pending';
+  // const foodItems = [
+  //   {
+  //     meal, quantity, price,
+  //   },
+  // ];
+
+  // const orderStatus = 'pending';
 
 
-  const newOrder = {
-    id: allOrders.length + 1,
-    userId,
-    fullname,
-    userTelephone,
-    address,
-    foodItems,
-    Total,
-    orderStatus,
-    createdAt: now,
-    updatedAt: now,
-  };
+  // const newOrder = {
+  //   id: allOrders.length + 1,
+  //   userId,
+  //   fullname,
+  //   userTelephone,
+  //   address,
+  //   foodItems,
+  //   Total,
+  //   orderStatus,
+  //   createdAt: now,
+  //   updatedAt: now,
+  // };
 
-  allOrders.push(newOrder);
-  return res.status(201).json({
-    success: 'true',
-    message: 'you just ordered for a food',
-    order: newOrder,
-  });
+  // allOrders.push(newOrder);
+  // return res.status(201).json({
+  //   success: 'true',
+  //   message: 'you just ordered for a food',
+  //   order: newOrder,
+  // });
 };
 
 export default postOrder;
