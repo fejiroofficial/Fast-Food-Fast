@@ -19,7 +19,7 @@ html, body, .container {
 
 .logo {
     height: 155px;
-    width: 475px;
+    width: 209px;
     margin-top: -34px;
     background-image: url(../img/new-logo.png);
     background-size: contain;
@@ -30,6 +30,24 @@ html, body, .container {
 .logo-box {
     height: inherit;
     width: 70%;
+    display: flex;
+}
+
+.menu {
+    margin-right: 54px;
+    margin-top: 5px;
+    color: #625f5f;
+}
+
+.menu-list-ul {
+    display: flex;
+    list-style: none;
+    font-weight: 600;
+}
+
+
+.menu-list {
+    margin-right: 54px;
 }
 
 #auth-box {
@@ -257,7 +275,7 @@ footer {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #5b6163;
 }
 
 .food-hero {
