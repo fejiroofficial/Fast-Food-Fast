@@ -1,4 +1,4 @@
-const users = [
+export const users = [
   {
     id: 1,
     fullname: 'Fejiro Gospel',
@@ -27,7 +27,6 @@ const allOrders = [
   },
 ];
 
-export default users;
 
 export default allOrders;
 
