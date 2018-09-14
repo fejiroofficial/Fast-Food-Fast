@@ -1,15 +1,12 @@
-export const users = [
-  {
-    id: 1,
-    fullname: 'Fejiro Gospel',
-    email: 'houseofjiro@gmail.com',
-    telephone: '08138776199',
-    address: '14 shomolu street, mushin, lagos',
-    password: '123456',
-  },
-];
-
-const allOrders = [
+/**
+ * a list of all orders
+ * @constant
+ *
+ * @type {Array<Object>}
+ * 
+ * @exports allOrders
+ */
+ const allOrders = [
   {
     id: 1,
     userId: 1,
@@ -26,7 +23,6 @@ const allOrders = [
     updatedAt: new Date().toISOString(),
   },
 ];
-
 
 export default allOrders;
 

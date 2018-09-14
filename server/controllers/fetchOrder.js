@@ -1,5 +1,16 @@
 import allOrders from '../datastore/orders';
-
+/**
+ * fetch a specific order controller function
+ * @constant
+ * 
+ * @param {String} req request object
+ * @param {Object} res response object
+ * @param {Object} err error object
+ * 
+ * @returns {Object}
+ *
+ * @exports fetchOrders
+ */
 const fetchOrders = (req, res, err) => {
   const orderId = parseInt(req.params.id, 10);
 
