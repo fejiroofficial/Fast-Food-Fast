@@ -39,7 +39,7 @@ npm start
 ```
 
 
-## API Routes
+## Routes
 
 |   HTTP VERB   | ENDPOINT                    | FUCTIONALITY                          |
 | ------------- | ----------------------------| --------------------------------------|
@@ -47,6 +47,16 @@ npm start
 | GET           | api/v1/orders/:id           | Fetch a specific order                |
 | POST          | api/v1/orders               | Make a new order                      |
 | PUT           | api/v1/orders/:id           | Update an order status                |
+
+* GET `api/v1/orders` Use this route to get a list of all orders
+* GET `api/v1/orders/<orderId>` Use this route to fetch a specific order
+* POST `api/v1/orders` Use this route to make a new order for food. The following fields are required:
+    - `userId` This is the `id` of the user who wants to make an order
+    - `meal` The name of the meal to be ordered for
+    - `quantity` The quantity of the meal to be ordered for
+    - `price` The price of the meal to be ordered for
+* PUT `api/v1/orders/<orderId>` Use this route to update the status of an order
+    - `orderStatus` The status of an order can only be `progress` or `delivered`
 
 
 Api is hosted [`here`](https://food-fast-app.herokuapp.com/)
