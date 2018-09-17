@@ -13,13 +13,25 @@ html, body, .container {
 .top-nav {
     height: 60px;
     width: 100%;
+    background-color: white;
     box-shadow: 0px 0px 1px 0px lightgrey;
     display: flex;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.home-hero {
+    height: 150px;
+    width: inherit;
+    background-image: url('../img/foodbackg.jpg');
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
 }
 
 .logo {
     height: 155px;
-    width: 209px;
+    width: 152px;
     margin-top: -34px;
     background-image: url(../img/new-logo.png);
     background-size: contain;
@@ -54,7 +66,9 @@ html, body, .container {
     height: inherit;
     width: 300px;
     display: flex;
-    padding-left: 165px;
+    padding-left: 122px;
+    position: relative;
+    display: inline-block;
 }
 
 #user-auth-box {
@@ -173,9 +187,69 @@ html, body, .container {
 }
 
 .we-deliver {
-    height: 400px;
+    height: 295px;
     width: 100%;
-    margin-top: 30px;
+    padding-top: 34px;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: -webkit-center;
+    background-color: #f6f6f6;
+}
+
+.we-deliver-in {
+    height: 250px;
+    width: 600px;
+    display: flex;
+}
+
+.deliver-box {
+    height: inherit;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.deliver-img {
+    height: 200px;
+    width: inherit;
+    border-radius: 50%;
+    background-color: white;
+    background-image: url('http://a57.foxnews.com/images.foxnews.com/content/fox-news/food-drink/2018/02/06/fast-food-restaurants-may-be-healthier-than-five-star-restaurants/_jcr_content/par/featured_image/media-0.img.jpg/931/524/1517968966228.jpg?ve=1&tl=1&text=big-top-image');
+    background-size: 75%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 10px 1px lightgrey;
+}
+
+.deliver-img-od {
+    background-image: url('https://www.gurutechnolabs.com/wp-content/uploads/2018/07/Restaurant-App-Development.png');
+    background-size: 43%;
+}
+
+.deliver-img-del {
+    background-image: url('../img/deliveryboy.png');
+    background-size: 81%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.deliver-title {
+    height: 50px;
+    width: inherit;
+    padding-top: 13px;
+    color: black;
+    font-weight: 600;
+}
+
+.popular {
+    height: 380px;
+    width: 100%;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: -webkit-center;
 }
 
 .write-del {
@@ -204,73 +278,218 @@ html, body, .container {
 }
 
 .variety-box {
-    margin-top: 190px;
-    min-height: 400px;
+    height: inherit;
+    width: 266px;
+    text-align: -webkit-center;
+    margin-right: 25px;
+    cursor: pointer;
+    background-color: #f94c06;
+}
+
+.variety-box:hover {
+    box-shadow: 0px 0px 10px 4px lightgrey;
+}
+
+.variety-kind {
+    height: 300px;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 85px;
+}
+
+.variety-img {
+    height: 200px;
+    border-top-left-radius: 50px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAbthujPrgNfSyFwov8OGvQ9gIxumLP_wWsm5z1QwmqiF5fOfq1Q');
+    background-size: auto;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 0px 1px lightgrey;
+}
+
+.variety-btm {
+    height: 100px;
+    width: inherit;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 0px 1px lightgrey;
+}
+
+.food-name, .food-price {
+    height: 50px;
+    width: inherit;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.food-price {
+    color: #e62e22;
+}
+
+.meal-container {
+    min-height: 260px;
+    width: 1004px;
+    background: rgba(147, 148, 161, 0.6);
+}
+
+.meal-box {
+    text-align: -webkit-center;
+    background-image: url('../img/foodbackg.jpg');
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.meal-box-header {
+    height: 80px;
+    width: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: rgba(150, 150, 150, 0.9) 1px 1px 1px;
+    color: whitesmoke;
+    padding-top: 28px;
+}
+
+.meal-box-content {
+    width: 846px;
+    min-height: 153px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.meal-info {
+    height: inherit;
+    width: 248px;
+}
+
+.meal-info-title, .meal-info-price, .meal-info-cart {
+    height: 50px;
+    width: inherit;
+    font-size: 19px;
+    font-weight: bold;
+    padding-top: 12px;
+    background-color: whitesmoke;
+}
+
+.meal-info-price {
+    color: #f94705;
+}
+
+.meal-info-cart {
+    background-color: #b4a8a6;
+    cursor: pointer;
+    border-top-style: solid;
+    border-top-width: thin;
+    border-color: lightgray;
+}
+
+.meal-single {
+    height: 150px;
+    width: 398px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    box-shadow: 0px 0px 1px 1px lightgrey;
+    background-color: white;
+}
+
+.meal-single:hover {
+    box-shadow: 0px 0px 10px 4px lightgrey;
+}
+
+.meal-img {
+    height: inherit;
+    width: 150px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx67fjcn2WFalc0g6vc-8TG0qaEwXtZbw5uBS5LBT-KYTHJz7ZSg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.view-more {
+    height: 100px;
     width: 100%;
     text-align: -webkit-center;
 }
 
-.variety-kind {
-    min-height: 400px;
-    width: 1081px;
+.view-more-btn {
+    height: 56PX;
+    width: 198px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    font-weight: bold;
+    padding-top: 16px;
+    background-color: whitesmoke;
+}
+
+.contact-box {
+    height: 225px;
+    width: 100%;
+    background-color: whitesmoke;
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 24px;
+    text-align: -webkit-center;
+}
+
+.cart-icon {
+    margin-right: 20px;
+    padding-top: 18px;
+    cursor: pointer;
+}
+
+
+.contact-box-fix {
+    height: inherit;
+    width: 300px;
+    padding-left: 17px;
+    padding-top: 20px;
+    text-align: initial;
+}
+
+.contact-header {
+    height: 50px;
+    width: inherit;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 55px;
+}
+
+.contact-content {
+    height: 151px;
+    width: inherit;
+    padding-top: 10px;
+}
+
+.contact-mini {
+    width: inherit;
     display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
-.variety {
-    height: 400px;
-    width: 340px;
-    margin-left: 20px;
-    margin-top: 20px;
-    box-shadow: 0px 0px 13px 1px lightgrey;
+.contact-text {
+    font-size: 14px;
+    padding-left: 10px;
 }
 
-.variety-one {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdjmbAZf66WmFeCrDfg42nRC-MuvsKAbwLZAAkmQ_tlvV3hIIAHQ");
-    background-size: auto;
-    background-position: 50%;
-    background-repeat: no-repeat;
+.fa {
+    color: #a42715;
+    font-size: 20px;
 }
 
-.variety-two {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDExoiSqc775ON8a_DEUzMJpt8o6HUrrI4B_tBlOWlU_3t4VlQA");
-    background-size: auto;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
-
-.variety-three {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Tgq6oQ6mkShcdbggZCnQjRYj-weYq-VDCep1hJHMXUtBg73Txg");
-    background-size: auto;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
-
-.variety-four {
-    background-image: url("https://thumbs.dreamstime.com/b/chinese-food-rice-fried-chicken-vegetables-isolated-white-background-opened-take-out-box-105837973.jpg");
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
-
-.variety-five {
-    background-image: url("https://www.takaski.com/wp-content/uploads/2016/03/YAWATAYA-ISOGORO-Shichimi-Togarashi-Rice-Crackers-Garam-Masala-Made-in-Japna2.jpg");
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
-
-.variety-six {
-    background-image: url("https://eatfitgo.com/wp-content/uploads/2018/06/KickinChickenFriedRice_website.jpg");
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
+.fa-copyright, .footer-text {
+    color: white;
 }
 
 footer {
     height: 80px;
-    margin-top: 40px;
-    background-color: #363232;
+    background-color: #a42715;
+    text-align: center;
+    padding-top: 36px;
 }
 
 a {

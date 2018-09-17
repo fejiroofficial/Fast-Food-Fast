@@ -9,60 +9,150 @@
   <link rel="stylesheet" type="text/css" href="../UI/css/modal.css">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <div class="container">
-    <div class="top-nav">
+    <div class="top-nav" id="myHeader">
       <div class="logo-box">
         <div class="logo"></div>
         <div class="menu">
-            <ul class="menu-list-ul">
-              <li class="menu-list"><a href="./index.html">Home</a></li>
-              <li class="menu-list"><a href="./order.html">Food</a></li>
-            </ul>
-          </div>
+          <ul class="menu-list-ul">
+            <li class="menu-list">
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="menu-list">
+              <a href="./order.html">Food</a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div id="auth-box">
+          <i class="material-icons cart-icon">shopping_cart</i>
         <div class="btn" onclick="openModal()">Login/Sign up</div>
       </div>
     </div>
+    <div class="home-hero"></div>
 
 
     <div class="we-deliver">
-      <div class="write-del hero-del">
-        <div class="write-hero">
-          <div class="eat-hero">You just order!</div>
-          <div class="eat-ready">We deliver</div>
-          <div class="eat-bold">Sumptious and fast</div>
-          <p>
-            <i>"24 hour food delivery service"</i>
-          </p>
+      <div class="we-deliver-in">
+        <div class="deliver-box">
+          <div class="deliver-img"></div>
+          <div class="deliver-title">Select Food</div>
+        </div>
+        <div class="deliver-box">
+          <div class="deliver-img deliver-img-od"></div>
+          <div class="deliver-title">Order Food</div>
+        </div>
+        <div class="deliver-box">
+          <div class="deliver-img deliver-img-del"></div>
+          <div class="deliver-title">Delivery</div>
         </div>
       </div>
-      <div class="btn-space">
-        <a href="./order.html">
-          <div class="order-btn">
-            Order Now
+    </div>
+    <div class="meal-box">
+      <div class="meal-container">
+        <div class="meal-box-header">Menu</div>
+        <div class="meal-box-content">
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
           </div>
-        </a>
+
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-single">
+            <div class="meal-img"></div>
+            <div class="meal-info">
+              <div class="meal-info-title">Bugger</div>
+              <div class="meal-info-price">#500</div>
+              <div class="meal-info-cart">
+                <div class="to-cart-btn">Add to cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="view-more">
+            <div class="view-more-btn">VIEW MORE >></div>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <div class="variety-box">
-      <h2>Food gallery</h2>
-      <div class="variety-kind">
-        <div class="variety variety-one"></div>
-        <div class="variety variety-two"></div>
-        <div class="variety variety-three"></div>
-        <div class="variety variety-four"></div>
-        <div class="variety variety-five"></div>
-        <div class="variety variety-six"></div>
+    <div class="contact-box">
+      <div class="contact-box-fix">
+        <div class="contact-header">CONTACT US</div>
+        <div class="contact-content">
+          <div class="contact-mini">
+            <i class="fa fa-map-marker"></i>
+            <div class="contact-text">24b Exodus lane, besides Andela Epic Tower, Ilupeju, Lagos</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-phone"></i>
+            <div class="contact-text">+2348138776199, +2348011144428</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-envelope"></i>
+            <div class="contact-text">fastfoodfast@fsf.com</div>
+          </div>
+        </div>
       </div>
     </div>
+    
   </div>
 
-
+  
   <div id="modal" class="modal-box">
     <div class="modal-box-content">
       <div class="modal-class-log">
@@ -146,9 +236,25 @@
     </div>
   </div>
   </div>
-  <footer></footer>
+  <footer>
+    <i class="fa fa-copyright"></i>
+    <div class="footer-text">House of jiro media concepts</div>
+  </footer>
 
   <script src="./js/login.js"></script>
+  <script>
+    window.onscroll = function () { myFunction() };
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+
+  </script>
 </body>
 
 </html>
