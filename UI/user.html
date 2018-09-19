@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="../UI/css/admin.css">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -18,16 +19,28 @@
         <div class="logo"></div>
         <div class="menu">
           <ul class="menu-list-ul">
-            <li class="menu-list"><a href="./index.html">Home</a></li>
-            <li class="menu-list"><a href="./order.html">Food</a></li>
+            <li class="menu-list">
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="menu-list">
+              <a href="./index.html">About Us</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div id="user-auth-box">
-        <i class="material-icons">account_circle</i>
-        <div class="prof-name">Tholle Mayer</div>
+      <div id="auth-box">
+        <a href="./cart.html"><i class="material-icons cart-icon">shopping_cart</i></a>
+        <div class="prof-name-box">
+          <i class="material-icons acct-icon">account_circle</i>
+          <div id="prof-name">
+            <a href="./user.html"> Tholle Mayer </a>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="home-hero"></div>
 
     <div class="admin-top">
       <div class="admin-top-header">Tholle Mayer</div>
@@ -45,8 +58,7 @@
               <div class="field">
                 <label class="name-label">Full name</label>
                 <div class="control">
-                  <input type="text" id="info_fullname" name="fullname-form" required="required"
-                   class="input" value="Tholle Mayer">
+                  <input type="text" id="info_fullname" name="fullname-form" required="required" class="input" value="Tholle Mayer">
                 </div>
               </div>
 
@@ -54,16 +66,14 @@
               <div class="field">
                 <label class="email-label"> Email</label>
                 <div class="control">
-                  <input type="email" id="info_email" name="personal_email" required="required"
-                    class="input" value="mayer8@gmail.com">
+                  <input type="email" id="info_email" name="personal_email" required="required" class="input" value="mayer8@gmail.com">
                 </div>
               </div>
 
               <div class="field">
                 <label class="tel-label">Telephone</label>
                 <div class="control">
-                  <input type="tel" id="info_tel" name="personal_tel" required="required"
-                    class="input" value="+2348138776199">
+                  <input type="tel" id="info_tel" name="personal_tel" required="required" class="input" value="+2348138776199">
                 </div>
               </div>
 
@@ -92,8 +102,32 @@
       </div>
     </div>
 
+    <div class="contact-box">
+      <div class="contact-box-fix">
+        <div class="contact-header">CONTACT US</div>
+        <div class="contact-content">
+          <div class="contact-mini">
+            <i class="fa fa-map-marker"></i>
+            <div class="contact-text">24b Exodus lane, besides Andela Epic Tower, Ilupeju, Lagos</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-phone"></i>
+            <div class="contact-text">+2348138776199, +2348011144428</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-envelope"></i>
+            <div class="contact-text">fastfoodfast@fsf.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
+  <footer>
+    <i class="fa fa-copyright"></i>
+    <div class="footer-text">House of jiro media concepts</div>
+  </footer>
 </body>
 
 </html>

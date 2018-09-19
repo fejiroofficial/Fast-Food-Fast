@@ -17,12 +17,14 @@
     min-height: 500px;
     width: 100%;
     text-align: -webkit-center;
+    background-image: url('../img/foodbackg2.jpg');
 }
 
 .admin-content, .user-content {
-    min-height: 200px;
-    width: 1000px;
+    min-height: 550px;
+    width: 1021px;
     display: flex;
+    background: rgba(147, 148, 161, 0.6);
 }
 
 .ord-items-box {
@@ -41,21 +43,24 @@
     width: inherit;
     padding-top: 19px;
     font-weight: bold;
-    color: #6e6666;
+    color: #a42715;
+    font-size: larger;
 }
 
 .order-card {
-    min-height: 130px;
+    min-height: 225px;
     margin-bottom: 19px;
+    background-color: #f6f6f6;
     box-shadow: 0px 0px 9px 1px lightgrey;
     margin-left: 20px;
     margin-right: 17px;
 }
 .order-card-nm, .order-card-tel, .order-card-ad, .order-card-list, .order-card-amt, .order-work {
-    min-height: 20px;
+    min-height: 26px;
+    padding-top: 16px;
     width: inherit;
     display: flex;
-    padding-left: 5px;
+    padding-left: 21px;
     overflow-wrap: break-word;
 }
 
@@ -65,13 +70,19 @@
 
 .value-des {
     font-weight: bold;
+    color: #a42715;
 }
 
 #accept-btn, #decline-btn {
-    background-color: white;
+    background-color: #f6f6f6;
     cursor: pointer;
     color: black;
     border-width: thin;
+    height: 27px;
+    border-radius: 7px;
+    margin-bottom: 12px;
+    outline: none;
+    font-weight: bold;
 }
 
 #decline-btn {
@@ -80,12 +91,18 @@
 
 #decline-btn:hover {
     background-color: #e62e22;
+    color: white;
+}
+
+#accept-btn:hover {
+    background-color: lightgreen;
+    color: white;
 }
 
 .acct-box {
     width: 300px;
-    height: 422px;
-    box-shadow: 0px 0px 10px 1px lightgrey;
+    height: 450px;
+    background-color: white;
 }
 
 .recent-box {
@@ -97,7 +114,14 @@
 .sec-content, input {
     height: inherit;
     width: inherit;
+    outline: none;
     color: #7a7272;
+}
+
+input {
+    font-size: 15px;
+    width: 186px;
+    padding-left: 5px;
 }
 
 .form-h5 {
@@ -113,15 +137,24 @@
 .tel-label {
     margin-right: 5px;
     margin-bottom: 30px;
+    padding-top: 9px;
+    color: #a42715;
+    font-weight: bold;
 }
 
 .name-label {
     margin-right: 10px;
+    padding-top: 9px;
+    color: #a42715;
+    font-weight: bold;
 }
 
 .email-label {
     margin-right: 40px;
     margin-bottom: 29px;
+    padding-top: 9px;
+    color: #a42715;
+    font-weight: bold;
 }
 
 .data-btn {
@@ -146,10 +179,15 @@
     height: 40px;
     width: inherit;
     display: flex;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 19px;
 }
 .rec-order-date {
     height: inherit;
     width: 200px;
+    text-align: initial;
+    padding-left: 15px;
 }
 
 .rec-order-items {
@@ -171,7 +209,7 @@
     border-color: lightgrey;
     border-style: solid;
     border-width: thin;
-    margin-top: 60px;
+    margin-top: 180px;
 }
 
 .sign-in-header {
@@ -200,12 +238,19 @@
 
 input[id=admin-email], input[id=admin-password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 12px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 52px;
+    outline: none;
+    color: black;
+    font-size: medium;
+}
+
+input[type=checkbox] {
+    width: 13px;
 }
 
 #sign-btn {
@@ -220,8 +265,10 @@ input[id=admin-email], input[id=admin-password] {
     border-color: #beb5b5;
     border-style: solid;
     border-width: thin;
+    font-weight: bold;
 }
 
 #sign-btn:hover {
     background-color: #e62e22;
+    color: white;
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stack-lite</title>
+  <link rel="stylesheet" type="text/css" href="../UI/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../UI/css/modal.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-nav" id="myHeader">
+      <div class="logo-box">
+        <div class="logo"></div>
+        <div class="menu">
+          <ul class="menu-list-ul">
+            <li class="menu-list">
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="menu-list">
+              <a href="./index.html">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="auth-box">
+        <a href="./cart.html"><i class="material-icons cart-icon">shopping_cart</i></a>
+        <div class="prof-name-box">
+          <i class="material-icons acct-icon">account_circle</i>
+          <div id="prof-name"><a href="./user.html"> Tholle Mayer </a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="single-meal-box">
+      <div class="single-meal-container">
+        <div class="meal-box-header"></div>
+        <div class="meal-box-content">
+          <div class="single-meal-img"></div>
+          <div class="single-nx">
+            <div class="single-nx-title">Cheese Bugger</div>
+            <div class="single-nx-star">
+            <i class="fa fa-star fa_custom fa-2x" id="fa-gold"></i>
+            <i class="fa fa-star fa_custom fa-2x" id="fa-gold"></i>
+            <i class="fa fa-star fa_custom fa-2x" id="fa-gold"></i>
+            <i class="fa fa-star fa_custom fa-2x" id="fa-gold"></i> 
+            <i class="fa fa-star fa_custom fa-2x" id="fa-gold"></i>  
+          </div> 
+            <div class="single-nx-price"><span>₦</span>500</div>
+            <div class="single-btn-box">
+              <div class="single-btn">ADD TO CART</div>
+            </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-box-fix">
+        <div class="contact-header">CONTACT US</div>
+        <div class="contact-content">
+          <div class="contact-mini">
+            <i class="fa fa-map-marker"></i>
+            <div class="contact-text">24b Exodus lane, besides Andela Epic Tower, Ilupeju, Lagos</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-phone"></i>
+            <div class="contact-text">+2348138776199, +2348011144428</div>
+          </div>
+          <div class="contact-mini">
+            <i class="fa fa-envelope"></i>
+            <div class="contact-text">fastfoodfast@fsf.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  </div>
+  <footer>
+    <i class="fa fa-copyright"></i>
+    <div class="footer-text">House of jiro media concepts</div>
+  </footer>
+
+  <script>
+    window.onscroll = function () { myFunction() };
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+
+  </script>
+</body>
+
+</html>

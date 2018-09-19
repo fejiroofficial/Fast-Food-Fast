@@ -64,11 +64,28 @@ html, body, .container {
 
 #auth-box {
     height: inherit;
-    width: 300px;
+    min-width: 300px;
     display: flex;
     padding-left: 122px;
     position: relative;
-    display: inline-block;
+}
+
+.prof-name-box {
+    padding-top: 15px;
+    display: flex;
+}
+
+#prof-name {
+    padding-top: 4px;
+}
+
+.acct-icon {
+    padding-top: 2px;
+}
+
+.control {
+    outline: none;
+    height: 40px;
 }
 
 #user-auth-box {
@@ -151,13 +168,15 @@ html, body, .container {
   padding-top: 0px;
   text-align: center;
   cursor: pointer;
-  font-weight: 600;    
+  font-weight: 600;
+  outline: none;    
 }
 
 .btn-space {
     height: 80px;
     width: 100%;
     text-align: -webkit-center;
+    padding-top: 14px;
 }
 
 .write-hero {
@@ -334,12 +353,40 @@ html, body, .container {
     background: rgba(147, 148, 161, 0.6);
 }
 
+.single-meal-container {
+    min-height: 260px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    width: 1004px;
+    background-image: url(https://i0.wp.com/www.thetrentonline.com/wp-content/uploads/2014/03/fast-food-hamburger-burger-fries-the-trent.jpg?fit=1600%2C1000&ssl=1);
+    background-size: cover;
+    background-position: 24%;
+    background-repeat: no-repeat
+}
+
+.single-meal-img {
+    height: 350px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 1px lightgrey;
+    margin-bottom: 100px;
+    background-image: url('https://i0.wp.com/www.thetrentonline.com/wp-content/uploads/2014/03/fast-food-hamburger-burger-fries-the-trent.jpg?fit=1600%2C1000&ssl=1');
+    background-size: cover;
+    background-position: 24%;
+    background-repeat: no-repeat;
+}
+
 .meal-box {
     text-align: -webkit-center;
     background-image: url('../img/foodbackg.jpg');
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
+}
+
+.single-meal-box {
+    text-align: -webkit-center;
+    background-color: white;
 }
 
 .meal-box-header {
@@ -359,6 +406,67 @@ html, body, .container {
     display: flex;
 }
 
+.single-nx {
+    height: 350px;
+    padding-top: 77px;
+    width: 546px;
+    padding-left: 44px;
+    background: rgba(147, 148, 161, 0.7);
+}
+
+.single-nx-title {
+    height: 36px;
+    width: inherit;
+    text-align: -webkit-left;
+    font-size: x-large;
+    font-weight: 600;
+    color: #323232;
+}
+
+.single-nx-star {
+    text-align: initial;
+}
+
+.single-btn-box {
+    height: 100px;
+    width: inherit;
+    text-align: initial;
+    padding-top: 26px;
+}
+
+.single-btn:hover {
+    background-color: #a42715;
+    color: white;
+}
+
+.single-btn {
+    height: 60px;
+    border-radius: 10px;
+    width: 172px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    padding-top: 20px;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+#fa-gold {
+    font-size: 19px;
+    color: rgb(255, 164, 31);
+}
+
+.single-nx-price {
+    height: 80px;
+    width: inherit;
+    text-align: -webkit-left;
+    font-size: 40px;
+    font-weight: 600;
+    color: whitesmoke;
+    padding-top: 27px;
+}
+
 .meal-info {
     height: inherit;
     width: 248px;
@@ -366,11 +474,12 @@ html, body, .container {
 
 .meal-info-title, .meal-info-price, .meal-info-cart {
     height: 50px;
+    color: #323232;
     width: inherit;
     font-size: 19px;
     font-weight: bold;
     padding-top: 12px;
-    background-color: whitesmoke;
+    background-color: whitesmoke
 }
 
 .meal-info-price {
@@ -383,6 +492,11 @@ html, body, .container {
     border-top-style: solid;
     border-top-width: thin;
     border-color: lightgray;
+}
+
+.meal-info-cart:hover {
+    background-color: #a42715;
+    color: white;
 }
 
 .meal-single {
@@ -498,7 +612,7 @@ a {
 }
 
 .food-hero {
-    height: 300px;
+    height: 150px;
     width: 100%;
     background-image: url('../img/spag.jpg');
     background-position: 50%;
@@ -548,15 +662,12 @@ a {
     display: flex;
 }
 
-.order-box-left {
-    min-height: inherit;
-    width: 700px;
-}
-
 .order-box-right {
     min-height: inherit;
-    width: 300px;
+    width: inherit;
     box-shadow: 0px 0px 18px 1px lightgrey;
+    margin-top: 46px;
+    margin-bottom: 46px;
 }
 
 .box-right-top {
@@ -575,7 +686,7 @@ a {
 }
 
 .cart-items {
-    min-height: 100px;
+    min-height: 200px;
     width: inherit;
 }
 

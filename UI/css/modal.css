@@ -62,6 +62,7 @@ form {
     display: block;
     border: 1px solid #ccc;
     width: 100%;
+    outline: none;
 }
 
 .form-b-space {
@@ -96,8 +97,8 @@ form {
     border-bottom-style: solid;
     border-width: thin;
     border-color: lightgrey;
-    color: lightgray;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .modal-class-one:hover {
