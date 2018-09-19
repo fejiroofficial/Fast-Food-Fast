@@ -1,3 +1,15 @@
+/**
+ * This is a validation for post order
+ * @constant
+ * 
+ * @param {String} req request object
+ * @param {Object} res response object
+ * @param {Object} err error object
+ * 
+ * @returns {Object}
+ *
+ * @exports validatePostOrder
+ */
 const validatePostOrder = (req, res, next) => {
   let {
     meal, userId, quantity, price,
