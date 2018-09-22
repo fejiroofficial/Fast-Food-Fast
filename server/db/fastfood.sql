@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS users (
    firstname  VARCHAR(255) NOT NULL,
    lastname  VARCHAR(255) NOT NULL,
    email  VARCHAR(255) NOT NULL UNIQUE,
-   telephone  VARCHAR(255) NOT NULL UNIQUE,
+   telephone  VARCHAR(255) UNIQUE,
    password  VARCHAR(255) NOT NULL,
    admin_user  INT NOT NULL,
    created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
