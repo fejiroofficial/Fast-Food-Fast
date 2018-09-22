@@ -7,13 +7,16 @@ import pgp, { QueryFile } from 'pg-promise';
 import setup from '../config/config';
 import User from '../models/users';
 
+/** @const sql - generating a full path */
+
 const sql = (file) => {
   // generate full path
   const fullPath = path.join(__dirname, file);
   return new QueryFile(fullPath, { minify: true });
 };
 
-// pg-promise initialization options
+/** @const initoptions pg-promise initialization options  */
+
 const initOptions = {
   promiseLib: Promise,
   extend(obj) {
@@ -26,7 +29,6 @@ const config = setup[env];
 
 let $db;
 
-// check if env is production
 if (config.use_env_variable) {
   $db = pgp(initOptions)(process.env[config.use_env_variable]);
 } else {
