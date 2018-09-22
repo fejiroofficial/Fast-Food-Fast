@@ -40,14 +40,7 @@ npm start
 
 
 ## Routes
-
-|   HTTP VERB   | ENDPOINT                    | FUCTIONALITY                          |
-| ------------- | ----------------------------| --------------------------------------|
-| GET           | api/v1/orders               | Fetch all orders                      |
-| GET           | api/v1/orders/:id           | Fetch a specific order                |
-| POST          | api/v1/orders               | Make a new order                      |
-| PUT           | api/v1/orders/:id           | Update an order status                |
-
+* POST `api/v1/auth/signup` Use this route to signup a user
 * GET `api/v1/orders` Use this route to get a list of all orders
 * GET `api/v1/orders/<orderId>` Use this route to fetch a specific order
 * POST `api/v1/orders` Use this route to make a new order for food. The following fields are required:
