@@ -1,23 +1,26 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt-nodejs';
 import db from '../db';
 
+/* eslint no-template-curly-in-string: "off" */
+
+const salt = bcrypt.genSaltSync(10);
 const users = [
   {
     firstname: 'Okeoghene',
     lastname: 'Gospel',
     email: 'oke@gmail.com',
-    password: bcrypt.hashSync('123456', 10),
+    password: bcrypt.hashSync('123456', salt),
     telephone: 8138776199,
-    adminUser: 'false',
+    adminUser: 100,
   },
 
   {
     firstname: 'Elooghene',
     lastname: 'Gospel',
     email: 'elorobust@gmail.com',
-    password: bcrypt.hashSync('123456', 10),
-    telephone: 8138776199,
-    adminUser: 'false',
+    password: bcrypt.hashSync('123456', salt),
+    telephone: 8138776188,
+    adminUser: 100,
   },
 ];
 
