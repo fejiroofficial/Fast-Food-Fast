@@ -11,7 +11,7 @@ const users = [
     email: 'oke@gmail.com',
     password: bcrypt.hashSync('123456', salt),
     telephone: 8138776199,
-    adminUser: 100,
+    adminUser: 101,
   },
 
   {

@@ -10,11 +10,11 @@ const signupError = (message) => {
 /**
  * This is a validation for user signup
  * @constant
- * 
+ *
  * @param {Object} req request object
  * @param {Object} res response object
  * @param {Object} next next object
- * 
+ *
  * @returns {Object} an object containing an error message if validation fails
  *
  * @exports validatePostOrder
@@ -22,7 +22,9 @@ const signupError = (message) => {
 
 
 const validateSignup = (req, res, next) => {
-  let { email, password, firstname, lastname, telephone } = req.body;
+  let {
+    email, password, firstname, lastname, telephone,
+  } = req.body;
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   email = email && email.toString().trim();
   firstname = firstname && firstname.toString().trim();
