@@ -61,12 +61,12 @@ export default class User {
   }
   /**
   * Method for modifying admin status.
-  * @param {number} userId - the id of a user.
+  * @param {number} id - the id of a user.
   */
 
-  modify(userId, values, adminUser) {
-    values.admin_user = adminUser;
-    const sql = 'UPDATE users SET admin_user=${adminUser} WHERE id=${userId} RETURNING *';
+  modify(values, id) {
+    values.id = id;
+    const sql = 'UPDATE users SET admin_user=${adminUser} WHERE id=${id} RETURNING *';
     return this.db.one(sql, values);
   }
 }

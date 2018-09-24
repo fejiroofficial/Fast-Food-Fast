@@ -6,6 +6,6 @@ import middlewares from '../middlewares';
 const router = express.Router();
 
 router.post('/auth/signup', middlewares.validateSignup, UserController.signup);
-router.put('/users/:id', UserController.updateAdminStatus);
+router.patch('/users/:id', middlewares.validateUpdateAdmin, UserController.updateAdminStatus);
 
 export default router;
