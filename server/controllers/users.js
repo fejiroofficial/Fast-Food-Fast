@@ -84,7 +84,7 @@ class UserController {
     return db.task('signin', data => data.users.findByEmail(email)
       .then((user) => {
         if (!user) {
-          return res.status(401).json({
+          return res.status(404).json({
             success: 'false',
             message: 'You have entered an invalid email or password',
           });
@@ -109,6 +109,55 @@ class UserController {
         return res.status(500).json({
           success: 'false',
           message: 'unable to login, try again!',
+          err: err.message,
+        });
+      });
+  }
+  /**
+* @function updateAdminStatus
+* @memberof UserController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static updateAdminStatus(req, res) {
+    const id = parseInt(req.params.id, 10);
+    let { adminUser } = req.body;
+    adminUser = adminUser && adminUser.toString().replace(/\s+/g, '');
+    return db.task('user admin status', data => data.users.findById(id)
+      .then((userFound) => {
+        if (!userFound) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'User does not exist in the database',
+          });
+        }
+        const updatedStatus = {
+          adminUser: adminUser || adminUser.userFound,
+        }
+        return db.users.modify(updatedStatus, id)
+          .then((result) => {
+            res.status(200).json({
+              success: 'true',
+              message: 'successful! status modified by you',
+              adminUser: result,
+            });
+          })
+          .catch((err) => {
+            return res.status(500).json({
+              success: 'false',
+              message: 'status could not be modified',
+              err: err.message,
+            });
+          });
+      }))
+      .catch((err) => {
+        return res.status(500).json({
+          success: 'false',
+          message: 'oops! a problem occured, try again after a while',
           err: err.message,
         });
       });
