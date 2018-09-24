@@ -84,7 +84,7 @@ class UserController {
     return db.task('signin', data => data.users.findByEmail(email)
       .then((user) => {
         if (!user) {
-          return res.status(401).json({
+          return res.status(404).json({
             success: 'false',
             message: 'You have entered an invalid email or password',
           });
