@@ -59,4 +59,14 @@ export default class User {
     const sql = 'DELETE FROM users WHERE id = $1';
     return this.db.one(sql, id);
   }
+  /**
+  * Method for modifying admin status.
+  * @param {number} userId - the id of a user.
+  */
+
+  modify(userId, values, adminUser) {
+    values.admin_user = adminUser;
+    const sql = 'UPDATE users SET admin_user=${adminUser} WHERE id=${userId} RETURNING *';
+    return this.db.one(sql, values);
+  }
 }
