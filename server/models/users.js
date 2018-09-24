@@ -1,6 +1,7 @@
 /* eslint no-param-reassign: "off" */
 /* eslint no-template-curly-in-string: "off" */
 /* eslint max-len: "off" */
+/* eslint linebreak-style: 0 */
 
 import bcrypt from 'bcrypt-nodejs';
 /** Class for interacting with the user data table. */
