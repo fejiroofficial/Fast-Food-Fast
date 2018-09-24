@@ -1,5 +1,16 @@
 /* eslint no-restricted-globals: "off" */
 /* eslint max-len: "off" */
+/* eslint linebreak-style: "off" */
+
+
+/**
+ * This is a validation for user login
+ * @constant
+ * 
+ * @param {String} message - any error message we provide
+ * 
+ * @returns {Object}
+ */
 
 const signupError = (message) => {
   const err = Error(message);
@@ -17,7 +28,7 @@ const signupError = (message) => {
  *
  * @returns {Object} an object containing an error message if validation fails
  *
- * @exports validatePostOrder
+ * @exports validateSignup
  */
 
 
