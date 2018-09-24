@@ -10,8 +10,8 @@ import db from '../db';
 /** food menu controller class */
 class MenuController {
   /**
-* @function login
-* @memberof UserController
+* @function postMeal
+* @memberof MenuController
 *
 * @param {Object} req - this is a request object that contains whatever is requested for
 * @param {Object} res - this is a response object to be sent after attending to a request
