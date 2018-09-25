@@ -6,6 +6,7 @@ import Promise from 'bluebird';
 import pgp, { QueryFile } from 'pg-promise';
 import setup from '../config/config';
 import User from '../models/users';
+import Menu from '../models/menu';
 
 /** @const sql - generating a full path */
 
@@ -21,6 +22,7 @@ const initOptions = {
   promiseLib: Promise,
   extend(obj) {
     obj.users = new User(obj);
+    obj.menu = new Menu(obj);
   },
 };
 

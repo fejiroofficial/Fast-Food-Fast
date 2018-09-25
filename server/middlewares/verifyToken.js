@@ -4,11 +4,11 @@ import db from '../db';
 /**
  * Authorization: Bearer <access_token>
  * @constant
- * 
+ *
  * @param {Object} req request object
  * @param {Object} res response object
  * @param {Object} next next object
- * 
+ *
  * @returns {Object}
  *
  * @exports verifyToken
