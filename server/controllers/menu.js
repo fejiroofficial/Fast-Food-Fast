@@ -52,8 +52,35 @@ class MenuController {
           message: 'so sorry, try again later',
           err: err.message,
         });
-      })   
-    );
+      }));
+  }
+
+  /**
+* @function getMenu
+* @memberof MenuController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static getMenu(req, res) {
+    db.task('all food menu', db => db.menu.allData()
+      .then((menu) => {
+        const allMenu = [...menu];
+        return res.status(200).json({
+          success: 'true',
+          menu: allMenu,
+        });
+      })
+      .catch((err) => {
+        res.status(404).json({
+          success: 'false',
+          message: 'nothing found in the database',
+          err: err.message,
+        });
+      }));
   }
 }
 export default MenuController;

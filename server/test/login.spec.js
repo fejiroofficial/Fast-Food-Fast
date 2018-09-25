@@ -80,7 +80,7 @@ describe('User login', () => {
       .post('/api/v1/auth/login')
       .send(invalidEmail)
       .end((err, res) => {
-        expect(res.status).to.equal(401);
+        expect(res.status).to.equal(404);
         expect(res.body.message).to.equal('You have entered an invalid email or password');
         done();
       });

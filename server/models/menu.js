@@ -38,4 +38,11 @@ export default class Menu {
     const sql = 'DELETE FROM food_menu WHERE id = $1';
     return this.db.one(sql, id);
   }
+
+  /** Method for getting all food menu in the database. */
+
+  allData() {
+    const sql = 'SELECT * FROM food_menu';
+    return this.db.many(sql);
+  }
 }

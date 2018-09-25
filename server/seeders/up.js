@@ -24,6 +24,20 @@ const users = [
   },
 ];
 
+const foodMenu = [
+  {
+    itemName: 'cheese bugger',
+    price: 1500,
+    foodImage: 'http://google.jpg'
+  },
+
+  {
+    itemName: 'egusi soup',
+    price: 600,
+    foodImage: 'http://google.jpg'
+  }
+]
+
 
 const up = () => {
   db.tx((t) => {
@@ -33,6 +47,18 @@ const up = () => {
   })
     .then(() => {
       console.log('Users seeded successfully');
+
+      db.tx((t) => {
+        const queries = foodMenu
+          .map(answer => t.none('INSERT INTO food_menu(item_name, price, food_image) VALUES(${itemName}, ${price}, ${foodImage})', answer));
+        return t.batch(queries);
+      })
+        .then(() => {
+          console.log('Menu seeded successfully');
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     })
     .catch((err) => {
       console.log(err);
