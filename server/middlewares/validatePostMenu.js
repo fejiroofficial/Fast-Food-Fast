@@ -4,7 +4,7 @@
 
 
 /**
- * This is a validation for user login
+ * function expression to handle error
  * @constant
  * 
  * @param {String} message - any error message we provide
