@@ -14,4 +14,7 @@ router.get('/menu', MenuController.getMenu);
 router.use('*', middlewares.verifyToken);
 router.post('/menu', middlewares.validatePostMenu, MenuController.postMeal);
 
+router.use('*', middlewares.verifyToken);
+router.post('/menu', middlewares.validatePostMenu, MenuController.postMeal);
+
 export default router;

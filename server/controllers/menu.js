@@ -81,6 +81,8 @@ class MenuController {
           err: err.message,
         });
       }));
+      })   
+    );
   }
 }
 export default MenuController;
