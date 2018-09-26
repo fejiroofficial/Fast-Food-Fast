@@ -26,7 +26,7 @@ class OrderController {
     foodId = foodId ? foodId.toString().replace(/\s+/g, '') : foodId;
     quantity = quantity ? quantity.toString().replace(/\s+/g, '') : quantity;
 
-    db.task('post meal', data => data.menu.findById(foodId)
+    db.task('add to cart', data => data.menu.findById(foodId)
       .then((meal) => {
         if (!meal) {
           return res.status(404).json({
@@ -79,7 +79,7 @@ class OrderController {
     deliveryAddress = deliveryAddress ? deliveryAddress.toString().replace(/\s+/g, '') : deliveryAddress;
     telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
 
-    db.task('post meal', data => data.cart.findByUserId(userId)
+    db.task('post order', data => data.cart.findByUserId(userId)
       .then((meals) => {
         if (!meals || meals.length === 0) {
           return res.status(404).json({
@@ -130,6 +130,55 @@ class OrderController {
           success: 'false',
           message: 'so sorry, try again later',
           err: err.message,
+        });
+      }));
+  }
+  /**
+  * @function getOrder
+  * @memberof OrderController
+  *
+  * @param {Object} req - this is a request object that contains whatever is requested for
+  * @param {Object} res - this is a response object to be sent after attending to a request
+  *
+  * @static
+  */
+
+  static getOrder(req, res) {
+    const { userId } = req;
+    const orderId = parseInt(req.params.id, 10);
+    const publicUser = process.env.PUBLIC_USER;
+    if (isNaN(orderId)) {
+      return res.status(400).json({
+        success: 'false',
+        message: 'param should be a number not an alphabet',
+      });
+    }
+    return db.task('fetch an order', data => data.users.findById(userId)
+      .then((user) => {
+        if (user.admin_user === publicUser) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'user unauthorized to get fetch an order',
+          });
+        }
+        return db.order.findById(orderId)
+          .then((order) => {
+            if (!order) {
+              return res.status(404).json({
+                success: 'false',
+                message: 'This order does not exist',
+              });
+            }
+            return res.status(200).json({
+              success: 'true',
+              order,
+            });
+          });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
         });
       }));
   }

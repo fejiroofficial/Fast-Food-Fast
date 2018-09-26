@@ -20,4 +20,13 @@ export default class Order {
     const sql = 'INSERT INTO placed_order (user_id, delivery_address, telephone) VALUES(${userId}, ${deliveryAddress}, ${telephone}) RETURNING id';
     return this.db.one(sql, values);
   }
+  /**
+  * Method for finding an order using the id.
+  * @param {number} id - the id of a order.
+  */
+
+  findById(id) {
+    const sql = 'SELECT * FROM placed_order WHERE id = $1';
+    return this.db.oneOrNone(sql, id);
+  }
 }
