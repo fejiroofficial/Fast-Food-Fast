@@ -40,11 +40,14 @@ class MenuController {
             message: 'user unauthorized to add a meal',
           });
         }
-        return res.status(201).json({
-          success: 'true',
-          message: 'meal has been added in successfully',
-          food: newMeal,
-        });
+        return db.menu.create({ itemName, price, foodImage })
+          .then(() => {
+            return res.status(201).json({
+              success: 'true',
+              message: 'meal has been added in successfully',
+              food: newMeal,
+            });
+          });
       })
       .catch((err) => {
         return res.status(500).json({

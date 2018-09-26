@@ -12,11 +12,22 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS food_menu (
    id  SERIAL PRIMARY KEY,
-   item_name  VARCHAR(255) NOT NULL,
+   item_name  VARCHAR(255) NOT NULL UNIQUE,
    price  decimal(12,2) NOT NULL,
    food_image  VARCHAR(225) NOT NULL,
    created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
    updated_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS cart (
+   id  SERIAL PRIMARY KEY,  
+   user_id  INT NOT NULL,
+   food_id  INT NOT NULL,
+   unit_price  DECIMAL(12,2) NOT NULL,
+   quantity  INT NOT NULL,
+   total INT NOT NULL,
+     --Relationship-- 
+  FOREIGN KEY( user_id ) REFERENCES users( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS placed_order (
@@ -24,6 +35,7 @@ CREATE TABLE IF NOT EXISTS placed_order (
    user_id  INT NOT NULL,
    delivery_address  VARCHAR(255) NOT NULL,
    telephone  VARCHAR(255) NOT NULL,
+   total_price DECIMAL(12,2) NOT NULL,
    order_time  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     --Relationship-- 
   FOREIGN KEY( user_id ) REFERENCES users( id ) ON DELETE CASCADE
@@ -31,14 +43,16 @@ CREATE TABLE IF NOT EXISTS placed_order (
 
 CREATE TABLE IF NOT EXISTS food_ordered (
    id  SERIAL PRIMARY KEY,
+   user_id  INT NOT NULL,
    placed_order_id  INT NOT NULL,
-   menu_item_id  INT NOT NULL,
+   food_item  VARCHAR(255) NOT NULL,
+   unit_price  DECIMAL(12,2) NOT NULL,
    quantity  INT NOT NULL,
-   item_price  DECIMAL(12,2) NOT NULL,
-   price  DECIMAL(12,2) NOT NULL,
+   total  DECIMAL(12,2) NOT NULL,
+   order_time  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
       --Relationship-- 
   FOREIGN KEY( placed_order_id ) REFERENCES placed_order( id ) ON DELETE CASCADE,
-  FOREIGN KEY( menu_item_id ) REFERENCES food_menu( id ) ON DELETE CASCADE
+  FOREIGN KEY( user_id ) REFERENCES users( id ) ON DELETE CASCADE
   );
 
 CREATE TABLE IF NOT EXISTS order_status (
