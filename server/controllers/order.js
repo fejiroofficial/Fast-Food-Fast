@@ -26,7 +26,7 @@ class OrderController {
     foodId = foodId ? foodId.toString().replace(/\s+/g, '') : foodId;
     quantity = quantity ? quantity.toString().replace(/\s+/g, '') : quantity;
 
-    db.task('post meal', data => data.menu.findById(foodId)
+   db.task('add to cart', data => data.menu.findById(foodId)
       .then((meal) => {
         if (!meal) {
           return res.status(404).json({
@@ -62,7 +62,6 @@ class OrderController {
         });
       }));
   }
-
   /**
 * @function orderFood
 * @memberof OrderController
@@ -79,7 +78,7 @@ class OrderController {
     deliveryAddress = deliveryAddress ? deliveryAddress.toString().replace(/\s+/g, '') : deliveryAddress;
     telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
 
-    db.task('post meal', data => data.cart.findByUserId(userId)
+    db.task('post order', data => data.cart.findByUserId(userId)
       .then((meals) => {
         if (!meals || meals.length === 0) {
           return res.status(404).json({
@@ -172,6 +171,49 @@ class OrderController {
           message: 'here goes your food order history',
           orderHistory: allHistory,
         });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
+        });
+      }));
+  }
+  /**
+  * @function getOrders
+  * @memberof OrderController
+  *
+  * @param {Object} req - this is a request object that contains whatever is requested for
+  * @param {Object} res - this is a response object to be sent after attending to a request
+  *
+  * @static
+  */
+
+  static getOrders(req, res) {
+    const { userId } = req;
+    const publicUser = process.env.PUBLIC_USER;
+    db.task('get orders', data => data.users.findById(userId)
+      .then((user) => {
+        if (user.admin_user === publicUser) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'user unauthorized to get all orders',
+          });
+        }
+        return db.order.allData()
+          .then((orders) => {
+            const allOrders = [...orders];
+            if (allOrders.length === 0) {
+              return res.status(404).json({
+                success: 'false',
+                message: 'There are no pending orders in the database',
+              });
+            }
+            return res.status(200).json({
+              success: 'true',
+              orders: allOrders,
+            });
+          });
       })
       .catch((err) => {
         res.status(500).json({
