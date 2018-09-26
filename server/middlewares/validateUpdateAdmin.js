@@ -2,7 +2,7 @@
 /* eslint max-len: "off" */
 
 /**
- * This is a validation for user login
+ *
  * @constant
  * 
  * @param {String} message - any error message we provide
@@ -18,7 +18,7 @@ const updateError = (message) => {
 };
 
 /**
- * This is a validation for user login
+ * This is a validation for updating an admin status
  * @constant
  * 
  * @param {Object} req request object
@@ -27,7 +27,7 @@ const updateError = (message) => {
  * 
  * @returns {Object} an object containing an error message if validation fails
  *
- * @exports validateLogin
+ * @exports validateUpdateAdmin
  */
 
 const validateUpdateAdmin = (req, res, next) => {
