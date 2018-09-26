@@ -13,9 +13,6 @@ const signinError = (message) => {
   err.statusCode = 400;
   return err;
 };
-
-
-
 /**
  * This is a validation for user login
  * @constant

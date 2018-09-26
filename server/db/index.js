@@ -7,6 +7,9 @@ import pgp, { QueryFile } from 'pg-promise';
 import setup from '../config/config';
 import User from '../models/users';
 import Menu from '../models/menu';
+import Cart from '../models/cart';
+import Order from '../models/order';
+import FoodOrdered from '../models/foodOrdered';
 
 /** @const sql - generating a full path */
 
@@ -23,6 +26,9 @@ const initOptions = {
   extend(obj) {
     obj.users = new User(obj);
     obj.menu = new Menu(obj);
+    obj.cart = new Cart(obj);
+    obj.order = new Order(obj);
+    obj.foodOrdered = new FoodOrdered(obj);
   },
 };
 

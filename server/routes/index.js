@@ -1,7 +1,10 @@
 /* eslint linebreak-style: 0 */
+/* eslint max-len: "off" */
+
 import express from 'express';
 import MenuController from '../controllers/menu';
 import UserController from '../controllers/users';
+import OrderController from '../controllers/order';
 import middlewares from '../middlewares';
 
 const router = express.Router();
@@ -13,8 +16,7 @@ router.get('/menu', MenuController.getMenu);
 
 router.use('*', middlewares.verifyToken);
 router.post('/menu', middlewares.validatePostMenu, MenuController.postMeal);
-
-router.use('*', middlewares.verifyToken);
-router.post('/menu', middlewares.validatePostMenu, MenuController.postMeal);
+router.post('/cart', middlewares.validateCart, OrderController.addToCart);
+router.post('/orders', middlewares.validateOrderFood, OrderController.orderFood);
 
 export default router;
