@@ -26,7 +26,7 @@ class OrderController {
     foodId = foodId ? foodId.toString().replace(/\s+/g, '') : foodId;
     quantity = quantity ? quantity.toString().replace(/\s+/g, '') : quantity;
 
-    db.task('post meal', data => data.menu.findById(foodId)
+    db.task('add to cart', data => data.menu.findById(foodId)
       .then((meal) => {
         if (!meal) {
           return res.status(404).json({
@@ -193,7 +193,7 @@ class OrderController {
   static getOrders(req, res) {
     const { userId } = req;
     const publicUser = process.env.PUBLIC_USER;
-    db.task('post meal', data => data.users.findById(userId)
+    db.task('get orders', data => data.users.findById(userId)
       .then((user) => {
         if (user.admin_user === publicUser) {
           return res.status(401).json({
