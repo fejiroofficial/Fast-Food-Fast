@@ -28,25 +28,6 @@ describe('POST /menu', () => {
           done();
         });
     });
-    it('it should not post a meal if user is not admin', (done) => {
-        const newMeal = {
-            id: 1,
-            itemName: 'Egusi soup',
-            price: 600,
-            foodImage: 'https://cdad5c1a.jpg'
-          };
-      chai
-        .request(app)
-        .post('/api/v1/menu')
-        .set('token', `${jwt.sign({ id: 2 }, process.env.SECRET_KEY, { expiresIn: '24hrs' })}`)
-        .send(newMeal)
-        .end((err, res) => {
-          expect(res.status).to.equal(401);
-          expect(res.body.success).to.equal('false');
-          expect(res.body.message).to.equal('user unauthorized to add a meal')
-          done();
-        });
-    });
     it('it should not post a meal if token is invalid', (done) => {
         const newMeal = {
             id: 1,
