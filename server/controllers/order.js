@@ -243,7 +243,7 @@ class OrderController {
         message: 'param should be a number not an alphabet',
       });
     }
-    return db.task('fetch an order', data => data.users.findById(userId)
+    return db.task('fetch user', data => data.users.findById(userId)
       .then((user) => {
         if (user.admin_user === publicUser) {
           return res.status(401).json({
@@ -263,6 +263,73 @@ class OrderController {
               success: 'true',
               order,
             });
+          });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
+        });
+      }));
+  }
+  /**
+* @function getOrder
+* @memberof OrderController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static orderStatus(req, res) {
+    const { userId } = req;
+    const orderId = parseInt(req.params.id, 10);
+    let { orderStatus } = req.body;
+    orderStatus = orderStatus && orderStatus
+      .toLowerCase().toString().replace(/\s+/g, '');
+    const publicUser = process.env.PUBLIC_USER;
+    if (isNaN(orderId)) {
+      return res.status(400).json({
+        success: 'false',
+        message: 'param should be a number not an alphabet',
+      });
+    }
+    return db.task('fetch user', data => data.users.findById(userId)
+      .then((user) => {
+        if (user.admin_user === publicUser) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'user unauthorized to update status order',
+          });
+        }
+        return db.order.findById(orderId)
+          .then((order) => {
+            order.order_status = orderStatus;
+            if (!order) {
+              return res.status(404).json({
+                success: 'false',
+                message: 'This order does not exist',
+              });
+            }
+            const updatedStatus = {
+              orderStatus: orderStatus || orderStatus.user,
+            };
+            return db.order.modify(updatedStatus, orderId)
+              .then((result) => {
+                res.status(200).json({
+                  success: 'true',
+                  message: 'successful! status modified by you',
+                  orderStatus: result,
+                });
+              })
+              .catch((err) => {
+                return res.status(500).json({
+                  success: 'false',
+                  message: 'status could not be modified',
+                  err: err.message,
+                });
+              });
           });
       })
       .catch((err) => {

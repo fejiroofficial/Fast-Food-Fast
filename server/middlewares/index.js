@@ -6,6 +6,7 @@ import validatePostMenu from './validatePostMenu';
 import validateLogin from './validateLogin';
 import validateOrderFood from './validateOrderFood';
 import validateCart from './validateCart';
+import validateOrderStatus from './validateStatus';
 
 const middlewares = {
   validateSignup,
@@ -15,6 +16,7 @@ const middlewares = {
   validateUpdateAdmin,
   validateOrderFood,
   validateCart,
+  validateOrderStatus,
 };
 
 export default middlewares;
