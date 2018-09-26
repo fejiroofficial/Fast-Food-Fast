@@ -18,5 +18,6 @@ router.use('*', middlewares.verifyToken);
 router.post('/menu', middlewares.validatePostMenu, MenuController.postMeal);
 router.post('/cart', middlewares.validateCart, OrderController.addToCart);
 router.post('/orders', middlewares.validateOrderFood, OrderController.orderFood);
+router.get('/orders/:id', OrderController.getOrder);
 
 export default router;
