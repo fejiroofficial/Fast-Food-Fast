@@ -79,7 +79,7 @@ class OrderController {
     deliveryAddress = deliveryAddress ? deliveryAddress.toString().replace(/\s+/g, '') : deliveryAddress;
     telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
 
-    db.task('post meal', data => data.cart.findByUserId(userId)
+    db.task('post order', data => data.cart.findByUserId(userId)
       .then((meals) => {
         if (!meals || meals.length === 0) {
           return res.status(404).json({

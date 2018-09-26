@@ -25,5 +25,13 @@ export default class Order {
   allData() {
     const sql = 'SELECT * FROM placed_order';
     return this.db.many(sql);
+  /**
+  * Method for finding an order using the id.
+  * @param {number} id - the id of a order.
+  */
+
+  findById(id) {
+    const sql = 'SELECT * FROM placed_order WHERE id = $1';
+    return this.db.oneOrNone(sql, id);
   }
 }
