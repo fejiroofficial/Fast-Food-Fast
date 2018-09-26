@@ -45,7 +45,7 @@ class OrderController {
           quantity,
           total,
         };
-        return db.cart.create({ userId, foodId, unitPrice, quantity, total })
+        return db.cart.create({ userId, itemName, unitPrice, quantity, total })
           .then(() => {
             return res.status(201).json({
               success: 'true',
@@ -62,7 +62,6 @@ class OrderController {
         });
       }));
   }
-
   /**
 * @function orderFood
 * @memberof OrderController
@@ -75,6 +74,7 @@ class OrderController {
 
   static orderFood(req, res) {
     const { userId } = req;
+    const status = 'New';
     let { deliveryAddress, telephone } = req.body;
     deliveryAddress = deliveryAddress ? deliveryAddress.toString().replace(/\s+/g, '') : deliveryAddress;
     telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
@@ -91,7 +91,7 @@ class OrderController {
         meals.forEach((meal) => {
           total += parseInt(meal.total, 10);
         });
-        return db.order.create({ userId, deliveryAddress, telephone, total })
+        return db.order.create({ userId, deliveryAddress, telephone, total, status })
           .then((order) => {
             const orderId = order.id;
             meals.forEach((meal) => {
@@ -158,7 +158,7 @@ class OrderController {
         message: 'you are unauthorized to view user history',
       });
     }
-    db.task('find user and meal', data => data.foodOrdered.findByUserId(userId)
+    return db.task('find user and meal', data => data.foodOrdered.findByUserId(userId)
       .then((history) => {
         const allHistory = [...history];
         if (allHistory.length === 0) {
@@ -213,6 +213,55 @@ class OrderController {
             return res.status(200).json({
               success: 'true',
               orders: allOrders,
+            });
+          });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
+        });
+      }));
+  }
+  /**
+* @function getOrder
+* @memberof OrderController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static getOrder(req, res) {
+    const { userId } = req;
+    const orderId = parseInt(req.params.id, 10);
+    const publicUser = process.env.PUBLIC_USER;
+    if (isNaN(orderId)) {
+      return res.status(400).json({
+        success: 'false',
+        message: 'param should be a number not an alphabet',
+      });
+    }
+    return db.task('fetch an order', data => data.users.findById(userId)
+      .then((user) => {
+        if (user.admin_user === publicUser) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'user unauthorized to get fetch an order',
+          });
+        }
+        return db.order.findById(orderId)
+          .then((order) => {
+            if (!order) {
+              return res.status(404).json({
+                success: 'false',
+                message: 'This order does not exist',
+              });
+            }
+            return res.status(200).json({
+              success: 'true',
+              order,
             });
           });
       })

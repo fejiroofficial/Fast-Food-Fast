@@ -17,7 +17,7 @@ export default class Cart {
   */
 
   create(values) {
-    const sql = 'INSERT INTO cart (user_id, food_id, unit_price, quantity, total) VALUES(${userId}, ${foodId}, ${unitPrice}, ${quantity}, ${total}) RETURNING *';
+    const sql = 'INSERT INTO cart (user_id, item_name, unit_price, quantity, total) VALUES(${userId}, ${itemName}, ${unitPrice}, ${quantity}, ${total}) RETURNING *';
     return this.db.one(sql, values);
   }
   /**

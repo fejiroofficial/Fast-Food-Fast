@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS food_menu (
 CREATE TABLE IF NOT EXISTS cart (
    id  SERIAL PRIMARY KEY,  
    user_id  INT NOT NULL,
-   food_id  INT NOT NULL,
+   item_name  VARCHAR(255) NOT NULL,
    unit_price  DECIMAL(12,2) NOT NULL,
    quantity  INT NOT NULL,
    total INT NOT NULL,
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS placed_order (
    delivery_address  VARCHAR(255) NOT NULL,
    telephone  VARCHAR(255) NOT NULL,
    total_price DECIMAL(12,2) NOT NULL,
+   order_status VARCHAR(255) NOT NULL,
    order_time  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     --Relationship-- 
   FOREIGN KEY( user_id ) REFERENCES users( id ) ON DELETE CASCADE
