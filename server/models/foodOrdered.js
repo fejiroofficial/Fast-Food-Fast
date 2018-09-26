@@ -17,7 +17,16 @@ export default class FoodOrdered {
   */
 
   create(values) {
-    const sql = 'INSERT INTO food_ordered (user_id, placed_order_id, meals, total) VALUES(${userId}, ${orderId}, ${meals}, ${total}) RETURNING *';
+    const sql = 'INSERT INTO food_ordered (user_id, placed_order_id, food_item, unit_price, quantity, total) VALUES(${userId}, ${orderId}, ${foodItem}, ${unitPrice}, ${quantity}, ${totalPrice}) RETURNING *';
     return this.db.one(sql, values);
+  }
+  /**
+* Method for finding a user using the id.
+* @param {number} id - the id of a user.
+*/
+
+  findByUserId(id) {
+    const sql = 'SELECT * FROM food_ordered WHERE user_id = $1';
+    return this.db.any(sql, id);
   }
 }

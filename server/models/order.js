@@ -17,9 +17,14 @@ export default class Order {
   */
 
   create(values) {
-    const sql = 'INSERT INTO placed_order (user_id, delivery_address, telephone) VALUES(${userId}, ${deliveryAddress}, ${telephone}) RETURNING id';
+    const sql = 'INSERT INTO placed_order (user_id, delivery_address, telephone, total_price) VALUES(${userId}, ${deliveryAddress}, ${telephone}, ${total}) RETURNING id';
     return this.db.one(sql, values);
   }
+  /** Method for getting all orders in the database. */
+
+  allData() {
+    const sql = 'SELECT * FROM placed_order';
+    return this.db.many(sql);
   /**
   * Method for finding an order using the id.
   * @param {number} id - the id of a order.

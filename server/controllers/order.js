@@ -134,7 +134,7 @@ class OrderController {
       }));
   }
   /**
-  * @function getOrder
+  * @function orderHistory
   * @memberof OrderController
   *
   * @param {Object} req - this is a request object that contains whatever is requested for
@@ -143,35 +143,76 @@ class OrderController {
   * @static
   */
 
-  static getOrder(req, res) {
+  static orderHistory(req, res) {
     const { userId } = req;
-    const orderId = parseInt(req.params.id, 10);
-    const publicUser = process.env.PUBLIC_USER;
-    if (isNaN(orderId)) {
+    const paramId = parseInt(req.params.id, 10);
+    if (isNaN(paramId)) {
       return res.status(400).json({
         success: 'false',
         message: 'param should be a number not an alphabet',
       });
     }
-    return db.task('fetch an order', data => data.users.findById(userId)
+    if (userId !== paramId) {
+      return res.status(401).json({
+        success: 'false',
+        message: 'you are unauthorized to view user history',
+      });
+    }
+    db.task('find user and meal', data => data.foodOrdered.findByUserId(userId)
+      .then((history) => {
+        const allHistory = [...history];
+        if (allHistory.length === 0) {
+          return res.status(404).json({
+            success: 'false',
+            message: 'Your food order history is empty',
+          });
+        }
+        return res.status(200).json({
+          success: 'true',
+          message: 'here goes your food order history',
+          orderHistory: allHistory,
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
+        });
+      }));
+  }
+  /**
+  * @function getOrders
+  * @memberof OrderController
+  *
+  * @param {Object} req - this is a request object that contains whatever is requested for
+  * @param {Object} res - this is a response object to be sent after attending to a request
+  *
+  * @static
+  */
+
+  static getOrders(req, res) {
+    const { userId } = req;
+    const publicUser = process.env.PUBLIC_USER;
+    db.task('get orders', data => data.users.findById(userId)
       .then((user) => {
         if (user.admin_user === publicUser) {
           return res.status(401).json({
             success: 'false',
-            message: 'user unauthorized to get fetch an order',
+            message: 'user unauthorized to get all orders',
           });
         }
-        return db.order.findById(orderId)
-          .then((order) => {
-            if (!order) {
+        return db.order.allData()
+          .then((orders) => {
+            const allOrders = [...orders];
+            if (allOrders.length === 0) {
               return res.status(404).json({
                 success: 'false',
-                message: 'This order does not exist',
+                message: 'There are no pending orders in the database',
               });
             }
             return res.status(200).json({
               success: 'true',
-              order,
+              orders: allOrders,
             });
           });
       })
