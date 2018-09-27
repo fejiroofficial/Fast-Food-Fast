@@ -31,25 +31,20 @@ const signupError = (message) => {
  */
 
 
-const validateSignup = (req, res, next) => {
+const validateUpdateProf = (req, res, next) => {
   let {
-    email, password, firstname, lastname, telephone,
+    email, firstname, lastname, telephone,
   } = req.body;
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   email = email && email.toString().trim();
   firstname = firstname && firstname.toString().trim();
   lastname = lastname && lastname.toString().trim();
-  password = password && password.toString();
   telephone = telephone && telephone.toString().replace(/\s+/g, '');
 
-  if (!email && !password) return next(signupError('Email and Password are required'));
+  // if (!email && !password) return next(signupError('Email and Password are required'));
 
   if (!email) return next(signupError('Email is required'));
   if (!emailRegex.test(email)) return next(signupError('Email is not valid'));
-  if (!password) return next(signupError('Password is required'));
-  if (password.trim() === '') return next(signupError('Password cannot be empty'));
-  if (password.length < 6) return next(signupError('Password must be minimum of 6 characters'));
-
   if (!firstname && !lastname) return next(signupError('firstname and lastname are required'));
   if (!firstname) return next(signupError('firstname is required'));
   if (firstname && firstname.length < 3) return next(signupError('firstname must be minimum of 3 characters'));
@@ -65,4 +60,4 @@ const validateSignup = (req, res, next) => {
   return next();
 };
 
-export default validateSignup;
+export default validateUpdateProf;

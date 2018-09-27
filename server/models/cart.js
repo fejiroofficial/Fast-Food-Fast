@@ -17,16 +17,44 @@ export default class Cart {
   */
 
   create(values) {
-    const sql = 'INSERT INTO cart (user_id, item_name, unit_price, quantity, total) VALUES(${userId}, ${itemName}, ${unitPrice}, ${quantity}, ${total}) RETURNING *';
+    const sql = 'INSERT INTO cart (user_id, food_id, quantity, total) VALUES(${userId}, ${foodId}, ${quantity}, ${total}) RETURNING *';
     return this.db.one(sql, values);
   }
   /**
-* Method for finding a user using the id.
+* Method for finding a food on menu using the id.
+* @param {number} id - the id of a cart item.
+*/
+
+  findById(id) {
+    const sql = 'SELECT * FROM cart WHERE id = $1';
+    return this.db.oneOrNone(sql, id);
+  }
+  /**
+* Method for finding a food on menu using userId.
 * @param {number} id - the id of a user.
 */
 
   findByUserId(id) {
-    const sql = 'SELECT * FROM cart WHERE user_id = $1';
+    const sql = 'SELECT * FROM cart JOIN menu ON cart.food_id = menu.id WHERE cart.user_id = $1';
     return this.db.any(sql, id);
+  }
+  /**
+  * Method for removing items from the cart.
+  * @param {number} id - the id of a user.
+  */
+
+  remove(id) {
+    const sql = 'DELETE FROM cart WHERE user_id = $1 RETURNING *';
+    return this.db.one(sql, id);
+  }
+  /**
+* Method for modifying cart information.
+* @param {number} id - the id of a food.
+*/
+
+  modify(values, id) {
+    values.id = id;
+    const sql = 'UPDATE cart SET quantity=${quantity}, total=${total} WHERE id=${id} RETURNING *';
+    return this.db.one(sql, values);
   }
 }

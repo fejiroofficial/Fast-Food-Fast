@@ -35,7 +35,16 @@ class UserController {
             message: 'user with this email already exists',
           });
         }
-
+        if (!telephone) {
+          return db.users.createUser({ firstname, lastname, email, password, adminUser })
+            .then((user) => {
+              jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
+              return res.status(201).json({
+                success: 'true',
+                message: 'Account created successfully',
+              });
+            });
+        }
         return db.users.findByTelephone(telephone)
           .then((found) => {
             if (found) {
@@ -46,13 +55,10 @@ class UserController {
             }
             return db.users.create({ firstname, lastname, email, telephone, password, adminUser })
               .then((user) => {
-                const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
-                const userDetails = { ...user };
-                res.status(201).json({
+                jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
+                return res.status(201).json({
                   success: 'true',
                   message: 'Account created successfully',
-                  userDetails,
-                  token,
                 });
               });
           });
@@ -96,12 +102,10 @@ class UserController {
             message: 'You have entered an invalid email or password',
           });
         }
-        const userDetails = { ...user };
         const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
         return res.status(200).json({
           success: 'true',
           message: 'Login was successful',
-          userDetails,
           token,
         });
       }))
@@ -114,7 +118,7 @@ class UserController {
       });
   }
   /**
-* @function updateAdminStatus
+* @function updateUser
 * @memberof UserController
 *
 * @param {Object} req - this is a request object that contains whatever is requested for
@@ -123,10 +127,15 @@ class UserController {
 * @static
 */
 
-  static updateAdminStatus(req, res) {
+  static updateUser(req, res) {
+    const { userId } = req;
     const id = parseInt(req.params.id, 10);
-    let { adminUser } = req.body;
-    adminUser = adminUser && adminUser.toString().replace(/\s+/g, '');
+    let { firstname, lastname, email, telephone } = req.body;
+    firstname = firstname ? firstname.toString().replace(/\s+/g, '') : firstname;
+    lastname = lastname ? lastname.toString().replace(/\s+/g, '') : lastname;
+    telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
+    email = email ? email.toString().replace(/\s+/g, '') : email;
+
     return db.task('user admin status', data => data.users.findById(id)
       .then((userFound) => {
         if (!userFound) {
@@ -135,21 +144,31 @@ class UserController {
             message: 'User does not exist in the database',
           });
         }
-        const updatedStatus = {
-          adminUser: adminUser || adminUser.userFound,
+        const owner = userFound.id === userId;
+
+        const updateProfile = {
+          firstname: firstname || firstname.userFound,
+          lastname: lastname || lastname.userFound,
+          email: email || email.userFound,
+          telephone: telephone || telephone.userFound,
+        };
+        if (!owner) {
+          return res.status(403).json({
+            success: 'false',
+            message: 'sorry, cannot modify an account that is not yours!',
+          });
         }
-        return db.users.modify(updatedStatus, id)
-          .then((result) => {
+        return db.users.modify(updateProfile, id)
+          .then(() => {
             res.status(200).json({
               success: 'true',
-              message: 'successful! status modified by you',
-              adminUser: result,
+              message: 'successful! your profile has been updated',
             });
           })
           .catch((err) => {
             return res.status(500).json({
               success: 'false',
-              message: 'status could not be modified',
+              message: 'profile could not be modified',
               err: err.message,
             });
           });

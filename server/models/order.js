@@ -18,14 +18,20 @@ export default class Order {
   */
 
   create(values) {
-    const sql = 'INSERT INTO placed_order (user_id, delivery_address, telephone, total_price, order_status) VALUES(${userId}, ${deliveryAddress}, ${telephone}, ${total}, ${status}) RETURNING id';
+    const sql = 'INSERT INTO orders (user_id, delivery_address, telephone, total_price, order_status) VALUES(${userId}, ${deliveryAddress}, ${telephone}, ${total}, ${status}) RETURNING id';
     return this.db.one(sql, values);
   }
   /** Method for getting all orders in the database. */
 
   allData() {
-    const sql = 'SELECT * FROM placed_order';
+    const sql = 'SELECT * FROM orders';
     return this.db.many(sql);
+  }
+  /**  Method for getting order history for a user */
+
+  userOrderData(id) {
+    const sql = 'SELECT  orders.id, menu.item_name, orders.total_price, orders.order_time FROM orders JOIN food_ordered ON orders.id = food_ordered.orders_id JOIN menu ON food_ordered.food_id = menu.id WHERE orders.user_id = $1 ORDER BY orders.order_time DESC';
+    return this.db.many(sql, id);
   }
   /**
   * Method for finding an order using the id.
@@ -33,7 +39,18 @@ export default class Order {
   */
 
   findById(id) {
-    const sql = 'SELECT * FROM placed_order WHERE id = $1';
-    return this.db.oneOrNone(sql, id);
+    const sql = 'SELECT * FROM orders LEFT JOIN food_ordered ON orders.id = food_ordered.orders_id LEFT JOIN menu ON food_ordered.food_id = menu.id WHERE orders.id = $1';
+    return this.db.many(sql, id);
+  }
+
+  /**
+* Method for modifying order status.
+* @param {number} id - the id of a user.
+*/
+
+  modify(values, id) {
+    values.orderId = id;
+    const sql = 'UPDATE orders SET order_status=${orderStatus} WHERE id=${orderId} RETURNING *';
+    return this.db.one(sql, values);
   }
 }

@@ -25,6 +25,17 @@ export default class User {
     return this.db.one(sql, values);
   }
   /**
+* Create a new user with telephone.
+* @param {object} values - values gotten from the body of a request.
+*/
+
+  createUser(values) {
+    const salt = bcrypt.genSaltSync(10);
+    values.password = bcrypt.hashSync(values.password, salt);
+    const sql = 'INSERT INTO users(firstname, lastname, email, password, admin_user) VAlUES( ${firstname}, ${lastname}, ${email}, ${password}, ${adminUser}) RETURNING id, firstname, lastname, email, telephone, admin_user';
+    return this.db.one(sql, values);
+  }
+  /**
   * Method for finding a user using the id.
   * @param {number} id - the id of a user.
   */
@@ -61,13 +72,13 @@ export default class User {
     return this.db.one(sql, id);
   }
   /**
-  * Method for modifying admin status.
+  * Method for modifying user information.
   * @param {number} id - the id of a user.
   */
 
   modify(values, id) {
     values.id = id;
-    const sql = 'UPDATE users SET admin_user=${adminUser} WHERE id=${id} RETURNING *';
+    const sql = 'UPDATE users SET firstname=${firstname}, lastname=${lastname}, email=${email}, telephone=${telephone} WHERE id=${id} RETURNING *';
     return this.db.one(sql, values);
   }
 }

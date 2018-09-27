@@ -10,15 +10,14 @@ describe('POST /menu', () => {
   describe('posting a menu endpoint', () => {
     it('it should successfully post a meal if user is an admin', (done) => {
         const newMeal = {
-            id: 1,
-            itemName: 'Egusi soup',
+            itemName: 'chinese rice',
             price: 600,
-            foodImage: 'https://cdad5c1a.jpg'
+            foodImage: 'https://cdad5c1a.jpg',
           };
       chai
         .request(app)
         .post('/api/v1/menu')
-        .set('token', `${jwt.sign({ id: 1 }, process.env.SECRET_KEY, { expiresIn: '24hrs' })}`)
+        .set('token', `${jwt.sign({ id: 1 }, 'fejiroofficial', { expiresIn: '24hrs' })}`)
         .send(newMeal)
         .end((err, res) => {
           expect(res.status).to.equal(201);

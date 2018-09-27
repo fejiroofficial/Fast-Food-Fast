@@ -29,19 +29,14 @@ const cartError = (message) => {
  * @exports validateCart
  */
 
-const validateCart = (req, res, next) => {
-  let { foodId, quantity } = req.body;
-  foodId = foodId && foodId.toString().replace(/\s+/g, '');
+const validateUpdateCart = (req, res, next) => {
+  let { quantity } = req.body;
   quantity = quantity && quantity.toString().replace(/\s+/g, '');
 
-  if (!foodId) return next(cartError('please select a food item on the menu'));
   if (!quantity) return next(cartError('please provide the quantity for item'));
-  if (isNaN(foodId)) return next(cartError('invalid food id'));
   if (isNaN(quantity)) return next(cartError('invalid quantity, quantity must be a number'));
 
   return next();
 };
 
-export default validateCart;
-
-
+export default validateUpdateCart;
