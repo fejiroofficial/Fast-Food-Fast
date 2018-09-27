@@ -2,6 +2,8 @@
 /* eslint no-console: "off" */
 import dotenv from 'dotenv';
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../swagger.json';
 import router from './routes';
 
 const app = express();
@@ -11,7 +13,7 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
   res.status(200).json({
     success: 'true',

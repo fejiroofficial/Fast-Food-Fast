@@ -40,14 +40,25 @@ class MenuController {
             message: 'user unauthorized to add a meal',
           });
         }
-        return db.menu.create({ itemName, price, foodImage })
-          .then(() => {
-            return res.status(201).json({
-              success: 'true',
-              message: 'meal has been added in successfully',
-              food: newMeal,
-            });
-          });
+        return db.task('post meal', data => data.menu.findByName(itemName)
+          .then((foodFound) => {
+            if (foodFound) {
+              return res.status(409).json({
+                success: 'false',
+                message: 'this food already exists in the database',
+                itemName,
+              });
+            }
+            return db.menu.create({ itemName, price, foodImage })
+              .then(() => {
+                return res.status(201).json({
+                  success: 'true',
+                  message: 'meal has been added in successfully',
+                  food: newMeal,
+                });
+              });
+          })
+        );
       })
       .catch((err) => {
         return res.status(500).json({
