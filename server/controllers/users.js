@@ -137,7 +137,7 @@ class UserController {
         }
         const updatedStatus = {
           adminUser: adminUser || adminUser.userFound,
-        }
+        };
         return db.users.modify(updatedStatus, id)
           .then((result) => {
             res.status(200).json({

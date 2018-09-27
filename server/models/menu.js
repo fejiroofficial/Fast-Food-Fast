@@ -30,6 +30,15 @@ export default class Menu {
     return this.db.oneOrNone(sql, id);
   }
   /**
+* Method for finding a food menu using the id.
+* @param {number} id - the id of a food.
+*/
+
+  findByName(itemName) {
+    const sql = 'SELECT * FROM food_menu WHERE item_name = $1';
+    return this.db.oneOrNone(sql, itemName);
+  }
+  /**
   * Method for removing a food menu from the database using the id.
   * @param {number} id - the id of a food.
   */

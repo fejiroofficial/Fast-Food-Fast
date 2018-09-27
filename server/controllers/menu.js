@@ -57,7 +57,6 @@ class MenuController {
         });
       }));
   }
-
   /**
 * @function getMenu
 * @memberof MenuController

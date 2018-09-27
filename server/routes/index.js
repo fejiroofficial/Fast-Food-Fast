@@ -21,5 +21,7 @@ router.post('/orders', middlewares.validateOrderFood, OrderController.orderFood)
 router.get('/orders', OrderController.getOrders);
 router.get('/users/:id/orders', OrderController.orderHistory);
 router.get('/orders/:id', OrderController.getOrder);
+router.put('/orders/:id', middlewares.validateOrderStatus, OrderController.orderStatus);
+
 
 export default router;

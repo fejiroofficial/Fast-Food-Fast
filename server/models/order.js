@@ -36,4 +36,14 @@ export default class Order {
     const sql = 'SELECT * FROM placed_order WHERE id = $1';
     return this.db.oneOrNone(sql, id);
   }
+  /**
+* Method for modifying order status.
+* @param {number} id - the id of a user.
+*/
+
+  modify(values, id) {
+    values.orderId = id;
+    const sql = 'UPDATE placed_order SET order_status=${orderStatus} WHERE id=${orderId} RETURNING *';
+    return this.db.one(sql, values);
+  }
 }
