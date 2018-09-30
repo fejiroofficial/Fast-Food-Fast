@@ -1,0 +1,59 @@
+{
+  "name": "fast-food-fast",
+  "version": "1.0.0",
+  "description": "Fast-Food-Fast​ is a food delivery service app for a restaurant",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node server/app.js",
+    "dev": "nodemon server/app.js --exec babel-node",
+    "lint": "eslint ./ --fix",
+    "seed": "babel-node server/seeders/up",
+    "drop": "babel-node server/seeders/drop",
+    "seed:undo": "babel-node server/seeders/down",
+    "pretest": "SET \"NODE_ENV=test\" && npm run db:setup",
+    "postest": "SET \"NODE_ENV=test\" && npm run seed:undo && npm run drop",
+    "db:setup": "npm run migrate && npm run seed",
+    "test": "cross-env NODE_ENV=test nyc mocha --timeout 10000 --require babel-register server/test --exit",
+    "coverage": "nyc report --reporter=text-lcov --reporter=lcov | coveralls",
+    "migrate": "babel-node server/db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fejiroofficial/Fast-Food-Fast.git"
+  },
+  "author": "Fejiro Gospel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fejiroofficial/Fast-Food-Fast/issues"
+  },
+  "homepage": "https://github.com/fejiroofficial/Fast-Food-Fast#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.2",
+    "cors": "^2.8.4",
+    "coveralls": "^3.0.2",
+    "dotenv": "^6.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "express": "^4.16.3",
+    "istanbul": "^0.4.5",
+    "jsonwebtoken": "^8.3.0",
+    "nyc": "^13.0.1",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0"
+  }
+}
